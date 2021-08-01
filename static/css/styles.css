@@ -111,6 +111,13 @@
 .cards {
   display: flex;
 }
-/* .border {
+.icons{
+    display: flex;
+    justify-content: space-around;
+    height: 24px;
+    width: 1000px;
+    
+}
+.border {
     border: solid 1px red;
-  } */
+  }
