@@ -9,7 +9,7 @@
   scroll-behavior: smooth;
 }
 .bg {
-  background-image: url(../img/bg.png);
+  background-image: url(../img/bg2.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
@@ -36,14 +36,19 @@
   margin-left: 156px;
   margin-bottom: 337px;
 }
-.title {
+.l1{
+  font-weight: 700;
+  color: #38b000;
+  display: flex;
+  padding-left: 1rem;
+  padding-top: 9px;
 }
 .t1 {
   font-style: normal;
   font-weight: 600;
   font-size: 54px;
   line-height: 74px;
-  color: #ffffff;
+  color: #008000;
 }
 .t2 {
   width: 500px;
@@ -52,7 +57,7 @@
   font-weight: 600;
   font-size: 36px;
   line-height: 49px;
-  color: #ffffff;
+  color: #38b000;
 }
 .t3 {
   font-style: normal;
@@ -86,6 +91,7 @@
   font-size: 20px;
   line-height: 27px;
   color: #ffffff;
+  cursor: pointer;
 }
 .button:hover {
   background: rgba(33, 228, 111, 0.85);
@@ -94,7 +100,6 @@
 .page2 {
   width: 100%;
   height: 100vh;
-<<<<<<< HEAD
 }
 .container2 {
     padding-top: 140px;
@@ -123,6 +128,64 @@
 .border {
     border: solid 1px red;
   }
-=======
-}
->>>>>>> 760f13db0d9ce7ccbc3fd0012907c9083097409d
+
+  .wrapper{
+    position: absolute;
+    top: 68%;
+    left: 83%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .link_wrapper{
+    position: relative;
+  }
+  
+  a#button{
+    display: block;
+    width: 250px;
+    height: 50px;
+    line-height: 50px;
+    font-weight: bold;
+    text-decoration: none;
+    background: #333;
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 3px solid #333;
+    transition: all .35s;
+  }
+  
+  .icon{
+    width: 50px;
+    height: 50px;
+    border: 3px solid transparent;
+    position: absolute;
+    transform: rotate(45deg);
+    right: 0;
+    top: 0;
+    z-index: -1;
+    transition: all .35s;
+  }
+  
+  .icon svg{
+    width: 30px;
+    position: absolute;
+    top: calc(50% - 15px);
+    left: calc(50% - 15px);
+    transform: rotate(-45deg);
+    fill: #2ecc71;
+    transition: all .35s;
+  }
+  
+  a#button:hover{
+    width: 200px;
+    border: 3px solid #2ecc71;
+    background: transparent;
+    color: #2ecc71;
+  }
+  
+  a#button:hover + .icon{
+    border: 3px solid #2ecc71;
+    right: -25%;
+  }
