@@ -35,3 +35,19 @@
     float: right;
     background-color: rgb(255, 179, 128);
   }
+
+  section#first{
+    display: flex;
+    padding: 1rem;
+    border: 1px red solid;
+  }
+
+  section#first div.card{
+    border: 1px #000 solid;
+    width: 20%;
+    display: flex;
+    text-align: justify;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+  }

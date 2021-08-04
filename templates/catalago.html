@@ -1,23 +1,37 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/2df7780fbc.js" crossorigin="anonymous"></script>
     <title>Catálago</title>
     <link rel="stylesheet" href="../static/css/catalago.css">
-</head>
-<body>
     
+</head>
+
+<body>
+
     <nav id="menu-horizontal">
         <ul>
             <li><a href="#">Catálogo</a></li>
             <li><a href="#">Contato</a></li>
             <li><a href="index.html">Sair</a></li>
-
         </ul>
-
     </nav>
+    <span><button id="Adicionar" type="submit" name="adicionar">Adicionar</button></span>
 
+        <section id="first">
+            <div class="card">
+                <img id="imgcat" src="../static/img/batata.png">
+                <h2 id="preco">R$ 3,75</h2>
+                <h3 id="qtds">QTD. 100000</h3>
+                <a id="edit"><i class="far fa-edit"></i></a>
+                <a id="remove"><i class="far fa-trash-alt"></i></a>
+            </div>
+        </section>
 </body>
+
 </html>
