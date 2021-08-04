@@ -15,6 +15,8 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 ## Criação de uma nova instância do SQLAlchemy passando como parametro o app
 db = SQLAlchemy(app)
 
+#Teste
+
 ##################################################################################
 ## Definição da classe Horta que herda os comportamentos de db.Model. Dessa forma
 ## a classe começa a se comportar como um Model que vai fazer o mapeamento com o
