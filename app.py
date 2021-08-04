@@ -4,7 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 
 ## Configuração do app passando os parametros de conexão com o banco de dados sqlite
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///catalogo.sqlite'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://qlkehnnv:jpzYaAeJILifKKQkh_GQDAi-I2t9YPuu@kesavan.db.elephantsql.com/qlkehnnv'
 
 # #Linha abaixo caso seja necessário utilizar banco de dados postgresql
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'postegresql://username:password@hostname-or-url/db-name'
@@ -37,8 +37,9 @@ class Horta(db.Model):
     valor = db.Column(db.Float)
     img = db.Column(db.Text)
 
-    def __init__(self, nome, quantidade, valor, img) -> None:
+    def __init__(self, tipo, nome, quantidade, valor, img) -> None:
         super().__init__()
+        self.tipo = tipo
         self.nome = nome
         self.quantidade = quantidade
         self.valor = valor
@@ -69,6 +70,7 @@ def adicionar():
     # Se for POST pega o que tiver vindo dos campos e adiciona ao objeto prod
     elif request.method == 'POST':
         prod = Horta(
+            request.form['tipo'],
             request.form['name'],
             request.form['quantidade'],
             request.form['valor'],
@@ -100,6 +102,7 @@ def alterar(id):
     # Se for POST é feita a suas devidas alterações e dado um novo commit. Em seguida redireciona
     # para a rota catalogo
     elif request.method == 'POST':
+        prod.tipo = request.form['tipo']
         prod.nome = request.form['name']
         prod.quantidade = request.form['quantidade']
         prod.valor = request.form['valor']
