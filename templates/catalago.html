@@ -5,33 +5,75 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/2df7780fbc.js" crossorigin="anonymous"></script>
     <title>Catálago</title>
     <link rel="stylesheet" href="../static/css/catalago.css">
-    
+
 </head>
 
 <body>
 
-    <nav id="menu-horizontal">
+    <nav>
         <ul>
-            <li><a href="#">Catálogo</a></li>
-            <li><a href="#">Contato</a></li>
-            <li><a href="index.html">Sair</a></li>
+            <img id="logo" src="../static/img/logo.png">
+            <li id="agro"><a>Agrotech</a></li>
+            <li id="perfil"><a><img id="perfil" src="../static/img/perfil.jpg"></a></li>
+            <li id="sair"><a id="sair" href="index.html"><i class="fas fa-sign-out-alt"></i></a></li>
         </ul>
     </nav>
-    <span><button id="Adicionar" type="submit" name="adicionar">Adicionar</button></span>
+    <div id="btnAdicionar">
+        <a id="btnAdicionar" href="#">
+            <button id="Adicionar" type="submit" name="adicionar">Adicionar</button>
+        </a>
+    </div>
 
-        <section id="first">
-            <div class="card">
-                <img id="imgcat" src="../static/img/batata.png">
-                <h2 id="preco">R$ 3,75</h2>
-                <h3 id="qtds">QTD. 100000</h3>
-                <a id="edit"><i class="far fa-edit"></i></a>
-                <a id="remove"><i class="far fa-trash-alt"></i></a>
+    <section id="firstline">
+        <div class="card">
+            <img id="imgcat" src="../static/img/cenoura.png">
+            <h2 id="nome">Cenoura</h2>
+            <h2 id="preco">R$ 3,75</h2>
+            <h3 id="qtds">QTD. 100000</h3>
+            <div id="icons">
+                <a href="#" id="edit"><i class="far fa-edit"></i></a>
+                <a href="#" id="delete"><i class="far fa-trash-alt"></i></a>
             </div>
-        </section>
+        </div>
+
+        <div class="card">
+            <img id="imgcat" src="../static/img/tomate.png">
+            <h2 id="nome">Tomate</h2>
+            <h2 id="preco">R$ 3,75</h2>
+            <h3 id="qtds">QTD. 100000</h3>
+            <div id="icons">
+                <a href="#" id="edit"><i class="far fa-edit"></i></a>
+                <a href="#" id="delete"><i class="far fa-trash-alt"></i></a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img id="imgcat" src="../static/img/alface.png">
+            <h2 id="nome">Alface</h2>
+            <h2 id="preco">R$ 3,75</h2>
+            <h3 id="qtds">QTD. 100000</h3>
+            <div id="icons">
+                <a href="#" id="edit"><i class="far fa-edit"></i></a>
+                <a href="#" id="delete"><i class="far fa-trash-alt"></i></a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img id="imgcat" src="../static/img/batata.png">
+            <h2 id="nome">Batata</h2>
+            <h2 id="preco">R$ 3,75</h2>
+            <h3 id="qtds">QTD. 100000</h3>
+            <div id="icons">
+                <a href="#" id="edit"><i class="far fa-edit"></i></a>
+                <a href="#" id="delete"><i class="far fa-trash-alt"></i></a>
+            </div>
+        </div>
+    </section>
 </body>
 
 </html>
