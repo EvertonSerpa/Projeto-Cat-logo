@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500&display=swap');
+
+* {
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  scroll-behavior: smooth;
+}
+
+nav {
+  position: fixed;
+  width: 100%;
+  background-color: #e9ecef;
+  border-bottom: #9ef01a 1px solid;
+  flex-wrap: wrap;
+}
+
+nav ul{
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+
+nav ul li{
+  padding: 0.6rem;
+}
+
+nav ul li#perfil{
+  margin-right: 3%;
+  margin-left: 0%;
+}
+
+nav ul li#sair{
+  margin-right: 7%;
+  margin-left: 0%;
+}
+
+nav ul li#agro{
+  margin-right: 71%;
+  margin-left: 0%;
+  margin-top: 10px;
+}
+
+nav ul li a{
+  text-decoration: none;
+  color: #38b000;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+nav ul li a#sair{
+  color: #fff;
+}
+
+nav ul li#sair a#sair{
+ font-size: 45px;
+}
+
+nav ul img#logo{
+  width: 55px;
+  height: 52px;
+  margin-left: 2%;
+  margin-top: 6px;
+}
+
+nav ul img#perfil{
+  width: 55px;
+  height: 52px;
+  border: #fff 1px none;
+  border-radius: 3rem;
+}
+
+div#btnAdicionar {
+  padding: 6rem;
+}
+
+div#btnAdicionar a#btnAdicionar {
+  padding: 1rem;
+  text-align: end;
+  text-decoration: none;
+  font-size: 2rem;
+  position: absolute;
+  top: 5.5rem;
+  right: 6rem;
+}
+
+div#btnAdicionar a#btnAdicionar button#Adicionar {
+  padding: 0.5rem;
+  width: 9rem;
+  border: 1px #70e000 solid;
+  border-radius: 3rem;
+  background-color: #70e000;
+  box-shadow: 0px 1px 1px 0px #38b000;
+  color: #fff;
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+section#firstline {
+  display: flex;
+  padding: 1rem;
+  margin-left: 9rem;
+}
+
+section#firstline div.card {
+  border: 1.2px #d3d3d3 solid;
+  width: 14%;
+  display: grid;
+  text-align: justify;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  line-height: 2.4rem;
+  border-radius: 3rem;
+  padding: 1rem;
+  box-shadow: 0px 0px 5px 0px #a3a3a3;
+  margin-right: 11rem;
+}
+
+section#firstline div.card img {
+  padding: 1rem;
+  height: 6vw;
+}
+
+section#firstline div.card div#icons {
+  padding: 15px;
+  margin-bottom: 10px;
+  margin-right: 2rem;
+  font-size: 21px;
+}
+
+section#firstline div.card div#icons a#edit {
+  padding: 2rem;
+  margin-bottom: 10px;
+  color: #538d22;
+}
+
+section#firstline div.card div#icons a#delete {
+  color: #d90429;
+}
+
+section#firstline div.card h2 {
+  font-weight: 300;
+}
+
+section#firstline div.card h3 {
+  font-weight: 400;
+}
