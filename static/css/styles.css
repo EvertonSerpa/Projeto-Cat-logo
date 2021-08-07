@@ -66,35 +66,6 @@
   line-height: 34px;
   margin-bottom: 20px;
 }
-.login {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 342px;
-  height: 386px;
-  left: 942px;
-  top: 301px;
-  background: #ffffff;
-  border-radius: 18px;
-}
-.button {
-  width: 195px;
-  height: 53px;
-  background: rgba(52, 239, 127, 0.85);
-  border: 0.5px solid #dddddd;
-  box-sizing: border-box;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.02);
-  border-radius: 11px;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 27px;
-  color: #ffffff;
-}
-.button:hover {
-  background: rgba(33, 228, 111, 0.85);
-}
 
 .page2 {
   width: 100%;
@@ -158,27 +129,6 @@ a#button {
   transition: all 0.35s;
 }
 
-.icon svg {
-  width: 30px;
-  position: absolute;
-  top: calc(50% - 15px);
-  left: calc(50% - 15px);
-  transform: rotate(-45deg);
-  fill: #2ecc71;
-  transition: all 0.35s;
-}
-
-a#button:hover {
-  width: 200px;
-  border: 3px solid #2ecc71;
-  background: transparent;
-  color: #2ecc71;
-}
-
-a#button:hover + .icon {
-  border: 3px solid #2ecc71;
-  right: -25%;
-}
 .cards {
   display: flex;
   justify-content: center;
