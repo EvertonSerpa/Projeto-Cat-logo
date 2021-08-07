@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream
-=======
 * {
   padding: 0;
   margin: 0;
@@ -38,16 +36,12 @@
   margin-left: 156px;
   margin-bottom: 337px;
 }
-<<<<<<< Updated upstream
-.title {
-=======
 .l1 {
   font-weight: 700;
   color: #ffffff;
   display: flex;
   padding-left: 1rem;
   padding-top: 9px;
->>>>>>> Stashed changes
 }
 .t1 {
   font-style: normal;
@@ -235,10 +229,6 @@ a#button:hover + .icon {
 .icones a:hover {
   background-color: rgb(226, 222, 222);
 }
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
-
 .link {
   display: flex;
   align-items: center;
@@ -250,4 +240,3 @@ a#button:hover + .icon {
   color: #ffffff;
   text-decoration: none;
 }
->>>>>>> Stashed changes
