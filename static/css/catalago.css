@@ -1,156 +1,169 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500&display=swap');
 
 * {
-  margin: 0 auto;
+  margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
+  color: #252422;
+  text-decoration: none;
 }
 
-html,
-body {
-  height: 100%;
-  width: 100%;
+html{
   scroll-behavior: smooth;
 }
 
-nav {
+header{
   position: fixed;
+  z-index: 999;
   width: 100%;
+  display: flex;
+  flex-wrap: row wrap;
+  justify-content: space-between;
   background-color: #e9ecef;
   border-bottom: #9ef01a 1px solid;
-  flex-wrap: wrap;
 }
 
-nav ul{
+header div{
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  width: 50vh;
+}
+
+header div img{
+  height: 4rem;
+}
+
+header div h1{
+  text-align: center;
+  margin-left: 2rem;
+  letter-spacing: .1rem;
+}
+
+header nav{
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+header nav ul{
   display: flex;
   justify-content: center;
+  align-items: center;
   list-style: none;
 }
 
-nav ul li{
-  padding: 0.6rem;
+header nav ul li{
+  margin: auto 1rem;
 }
 
-nav ul li#perfil{
-  margin-right: 3%;
-  margin-left: 0%;
-}
-
-nav ul li#sair{
-  margin-right: 7%;
-  margin-left: 0%;
-}
-
-nav ul li#agro{
-  margin-right: 71%;
-  margin-left: 0%;
-  margin-top: 10px;
-}
-
-nav ul li a{
-  text-decoration: none;
+header nav ul li a{
   color: #38b000;
-  font-size: 24px;
-  font-weight: 500;
-}
-
-nav ul li a#sair{
-  color: #fff;
-}
-
-nav ul li#sair a#sair{
- font-size: 45px;
-}
-
-nav ul img#logo{
-  width: 55px;
-  height: 52px;
-  margin-left: 2%;
-  margin-top: 6px;
-}
-
-nav ul img#perfil{
-  width: 55px;
-  height: 52px;
-  border: #fff 1px none;
-  border-radius: 3rem;
-}
-
-div#btnAdicionar {
-  padding: 6rem;
-}
-
-div#btnAdicionar a#btnAdicionar {
-  padding: 1rem;
-  text-align: end;
-  text-decoration: none;
   font-size: 2rem;
-  position: absolute;
-  top: 5.5rem;
-  right: 6rem;
+  font-weight: 500;
 }
 
-div#btnAdicionar a#btnAdicionar button#Adicionar {
-  padding: 0.5rem;
-  width: 9rem;
-  border: 1px #70e000 solid;
-  border-radius: 3rem;
-  background-color: #70e000;
-  box-shadow: 0px 1px 1px 0px #38b000;
-  color: #fff;
-  font-weight: 500;
-  font-size: 16px;
+header nav ul li img{
+  height: 3rem;
+  border-radius: 50%;
+}
+
+header nav ul li img:hover{
   cursor: pointer;
 }
 
-section#firstline {
+div.btnAdicionar {
+  padding: 6rem;
+}
+
+div.btnAdicionar a{
+  position: absolute;
+  top: 8rem;
+  right: 4rem;
+}
+
+div.btnAdicionar a button{
+  height: 2rem;
+  width: 9rem;
+  border: unset;
+  border-radius: 8px;
+  background-color: #9f3;
+  color: #252422;
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all .3s;
+}
+
+div.btnAdicionar a button:hover{
+  color: #fffcf2;
+  background-color: #e65c00;
+  box-shadow: 0 0 1rem #ccc5b9;
+}
+
+section.container{
   display: flex;
-  padding: 1rem;
-  margin-left: 9rem;
-}
-
-section#firstline div.card {
-  border: 1.2px #d3d3d3 solid;
-  width: 14%;
-  display: grid;
-  text-align: justify;
-  justify-content: center;
   align-items: center;
-  margin: 0;
-  line-height: 2.4rem;
-  border-radius: 3rem;
+  justify-content: center;
+  padding: 0 2rem;
+}
+
+section.container main.catalogo {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: baseline;
+  margin: 0 auto;
+}
+
+section.container main.catalogo div.card {
+  border: .1rem solid #d3d3d3;
+  width: 12rem;
+  height: 18rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  border-radius: 2rem;
   padding: 1rem;
-  box-shadow: 0px 0px 5px 0px #a3a3a3;
-  margin-right: 11rem;
+  box-shadow: 0 0 .3rem #a3a3a3;
+  margin: 1rem;
 }
 
-section#firstline div.card img {
+section.container main.catalogo div.card img{
+  height: 5rem;
+}
+
+section.container main.catalogo div.card div.infos{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+section.container main.catalogo div.card div.infos p.title{
+  font-weight: 800;
+}
+
+section.container main.catalogo div.card div.icons{
+  font-size: 1.4rem;
+}
+
+section.container main.catalogo div.card div.icons a{
+  margin-bottom: 10px;
   padding: 1rem;
-  height: 6vw;
 }
 
-section#firstline div.card div#icons {
-  padding: 15px;
-  margin-bottom: 10px;
-  margin-right: 2rem;
-  font-size: 21px;
+section.container main.catalogo div.card div.icons a i{
+  transition: ease .3s;
 }
 
-section#firstline div.card div#icons a#edit {
-  padding: 2rem;
-  margin-bottom: 10px;
+#edit:hover i{
   color: #538d22;
 }
 
-section#firstline div.card div#icons a#delete {
+#delete i:hover{
   color: #d90429;
-}
-
-section#firstline div.card h2 {
-  font-weight: 300;
-}
-
-section#firstline div.card h3 {
-  font-weight: 400;
 }
