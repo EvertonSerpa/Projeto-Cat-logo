@@ -32,10 +32,11 @@
             <main class="catalogo">
                 {% for info in infos %}
                 <div class="card">
-                    <img src="{{info.image}}" alt="Imagem {{info.nome}}">
+                    <img src="{{info.imagem}}" alt="Imagem {{info.nome}}">
                     <div class="infos">
                         <p class="title">{{info.nome}}</p>
-                        <p><strong>R$</strong> {info.valor{}}</p>
+                        <p>{{info.tipo}}</p>
+                        <p><strong>R$</strong> {{info.valor}}</p>
                         <p><strong>QTD.</strong> {{info.quantidade}}</p>
                     </div>
                     <div class="icons">
