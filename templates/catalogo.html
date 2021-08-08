@@ -28,8 +28,8 @@
             </a>
         </div>
 
-        <section class="container">
-            <main class="catalogo">
+        <main class="container">
+            <section id="catalogo">
                 {% for info in infos %}
                 <div class="card">
                     <img src="{{info.imagem}}" alt="Imagem {{info.nome}}">
@@ -45,8 +45,8 @@
                     </div>
                 </div>
                 {% endfor %}
-            </main>
-        </section>
+            </section>
+        </main>
         
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>

@@ -102,14 +102,14 @@ div.btnAdicionar a button:hover{
   box-shadow: 0 0 1rem #ccc5b9;
 }
 
-section.container{
+main.container{
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0 2rem;
 }
 
-section.container main.catalogo {
+main.container section#catalogo{
   display: flex;
   flex-flow: row wrap;
   align-items: center;
@@ -117,7 +117,7 @@ section.container main.catalogo {
   margin: 0 auto;
 }
 
-section.container main.catalogo div.card {
+main.container section#catalogo div.card {
   border: .1rem solid #d3d3d3;
   width: 12rem;
   height: 18rem;
@@ -132,31 +132,31 @@ section.container main.catalogo div.card {
   margin: 1rem;
 }
 
-section.container main.catalogo div.card img{
+main.container section#catalogo div.card img{
   height: 5rem;
 }
 
-section.container main.catalogo div.card div.infos{
+main.container section#catalogo div.card div.infos{
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
 }
 
-section.container main.catalogo div.card div.infos p.title{
+main.container section#catalogo div.card div.infos p.title{
   font-weight: 800;
 }
 
-section.container main.catalogo div.card div.icons{
+main.container section#catalogo div.card div.icons{
   font-size: 1.4rem;
 }
 
-section.container main.catalogo div.card div.icons a{
+main.container section#catalogo div.card div.icons a{
   margin-bottom: 10px;
   padding: 1rem;
 }
 
-section.container main.catalogo div.card div.icons a i{
+main.container section#catalogo div.card div.icons a i{
   transition: ease .3s;
 }
 
