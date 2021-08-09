@@ -1,23 +1,55 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catálago</title>
-    <link rel="stylesheet" href="../static/css/catalago.css">
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Catálago</title>
+        <link rel="stylesheet" href="../static/css/catalago.css">
+    </head>
+
+    <body>
+        <header>
+            <div>
+                <img src="../static/img/logo.png" alt="Logo Agrotech">
+                <h1><a href="#">Agrotech</a></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li class="perfil"><img src="../static/img/perfil.jpg" alt="Foto perfil"></li>
+                    <li class="sair"><a href="index.html"><i class="fas fa-sign-out-alt"></i></a></li>
+                </ul>
+            </nav>
+        </header>
     
-    <nav id="menu-horizontal">
-        <ul>
-            <li><a href="#">Catálogo</a></li>
-            <li><a href="#">Contato</a></li>
-            <li><a href="index.html">Sair</a></li>
+        <div class="btnAdicionar">
+            <a href="#">
+                <button>Adicionar</button>
+            </a>
+        </div>
 
-        </ul>
-
-    </nav>
-
-</body>
+        <section class="container">
+            <main class="catalogo">
+                {% for info in infos %}
+                <div class="card">
+                    <img src="{{info.imagem}}" alt="Imagem {{info.nome}}">
+                    <div class="infos">
+                        <p class="title">{{info.nome}}</p>
+                        <p>{{info.tipo}}</p>
+                        <p><strong>R$</strong> {{info.valor}}</p>
+                        <p><strong>QTD.</strong> {{info.quantidade}}</p>
+                    </div>
+                    <div class="icons">
+                        <a href="/catalogo/edit/{{info.id}}" id="edit"><i class="far fa-edit"></i></a>
+                        <a href="#" id="delete"><i class="far fa-trash-alt"></i></a>
+                    </div>
+                </div>
+                {% endfor %}
+            </main>
+        </section>
+        
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/2df7780fbc.js" crossorigin="anonymous"></script>
+    </body>
 </html>
