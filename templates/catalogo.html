@@ -5,7 +5,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Catálago</title>
-        <link rel="stylesheet" href="../static/css/catalago.css">
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
+        <link rel="stylesheet" href="../static/css/catalogo.css">
     </head>
 
     <body>
@@ -22,10 +23,9 @@
             </nav>
         </header>
     
-        <div class="btnAdicionar">
-            <a href="#">
-                <button>Adicionar</button>
-            </a>
+        <div id="btn">
+            <button class="btn-adicionar">Adicionar</button>
+            <button class="btn-cancelar">Cancelar</button>
         </div>
 
         <main class="container">
@@ -40,16 +40,94 @@
                         <p><strong>QTD.</strong> {{info.quantidade}}</p>
                     </div>
                     <div class="icons">
-                        <a href="/catalogo/edit/{{info.id}}" id="edit"><i class="far fa-edit"></i></a>
-                        <a href="#" id="delete"><i class="far fa-trash-alt"></i></a>
+                        <a href="/catalogo/edit/{{info.id}}"><i id="edit" class="far fa-edit"></i></a>
+                        <a href="/catalogo/delete/{{info.id}}" class="modal-trigger"><i data-target="{{info.id}}" id="delete" class="far fa-trash-alt"></i></a>
                     </div>
                 </div>
+                <!-- Código do para implementação do modal, ainda não funcional -->
+                <!-- <div class="modal" id="{{info.id}}">
+                    <div class="modal-content">
+                        <h3>Confirmação de Exclusão</h3>
+                        <img src="{{info.imagem}}" alt="Imagem {{info.nome}}">
+                        <p>Deseja mesmo exluir este item do catálogo?</p>
+                        <div class="icon-modal">
+                            <a href="/catalogo/delete/{{info.id}}"><i id="modal-confirm" class="far fa-check-circle"></i></a>
+                            <i id="modal-cancel" class="far fa-times-circle"></i>
+                        </div>
+                    </div>
+                </div> -->
                 {% endfor %}
+            </section>
+
+            <section id="add-item">
+                <h2>Adicionar Novo Produto</h2>
+                <form action="/catalogo/adicionar" method="POST">
+                    <div>
+                        <label for="nome">Nome</label>
+                        <input type="text" name="nome" id="nome">
+                    </div>
+                    <div>
+                        <label for="tipo">Tipo</label>
+                        <input type="text" name="tipo" id="tipo">
+                    </div>
+                    <div>
+                        <label for="valor">Valor</label>
+                        <input type="text" name="valor" id="valor">
+                    </div>
+                    <div>
+                        <label for="quantidade">Quantidade</label>
+                        <input type="text" name="quantidade" id="quantidade">
+                    </div>
+                    <div>
+                        <label for="imagem">Imagem</label>
+                        <input type="text" name="imagem" id="imagem" placeholder="Copie aqui o link da imagem">
+                    </div>
+                    <button>Cadastrar</button>
+                </form>
+            </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+            <section id="adicionar">
+
             </section>
         </main>
         
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script src="https://kit.fontawesome.com/2df7780fbc.js" crossorigin="anonymous"></script>
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
+        <script src="../static/js/script.js"></script>
     </body>
 </html>
