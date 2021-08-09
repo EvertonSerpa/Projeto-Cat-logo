@@ -1,7 +1,24 @@
 from flask import Flask, render_template, request, redirect
+from flask_mail import Mail, Message
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
+
+
+# Configuração do envio de email.
+mail_settings = {
+    "MAIL_SERVER": 'smtp.mailtrap.io',
+    "MAIL_PORT": 2525,
+    "MAIL_USERNAME": '5622d2e98706a9',
+    "MAIL_PASSWORD": 'f296da83b42768',
+    "MAIL_USE_TLS": True,
+    "MAIL_USE_SSL": False,
+   #  "MAIL_USERNAME": email,
+   #  "MAIL_PASSWORD": mail_senha
+}
+
+app.config.update(mail_settings) #atualizar as configurações do app com o dicionário mail_settings
+mail = Mail(app) # atribuir a class Mail o app atual.
 
 ## Configuração do app passando os parametros de conexão com o banco de dados sqlite
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://qlkehnnv:jpzYaAeJILifKKQkh_GQDAi-I2t9YPuu@kesavan.db.elephantsql.com/qlkehnnv'
@@ -47,6 +64,39 @@ class Horta(db.Model):
         self.valor = valor
         self.img = img
 ##################################################################################
+
+
+#######Classe#########
+class Contato:
+   def __init__ (self, nome, email, mensagem):
+      self.nome = nome
+      self.email = email
+      self.mensagem = mensagem
+#########Rota#########
+
+# Rota de envio de email.
+@app.route('/send', methods=['GET', 'POST'])
+def send():
+   if request.method == 'POST':
+      # Capiturando as informações do formulário com o request do Flask e criando o objeto formContato
+      formContato = Contato(
+         request.form['nome'],
+         request.form['email'],
+         request.form['mensagem']
+      )
+
+      # Criando o objeto msg, que é uma instancia da Class Message do Flask_Mail
+      msg = Message(
+         subject= 'Contato do seu Portfólio', #Assunto do email
+         sender=app.config.get("MAIL_USERNAME"), # Quem vai enviar o email, pega o email configurado no app (mail_settings)
+         recipients=[app.config.get("MAIL_USERNAME"),'renan_jc9@yahoo.com.br','josep.macedo@outlook.com'], # Quem vai receber o email, mando pra mim mesmo, posso mandar pra mais de um email.
+         # Corpo do email.
+         body=f'''O {formContato.nome} com o email {formContato.email}, te mandou a seguinte mensagem: 
+         
+               {formContato.mensagem}''' 
+         )
+      mail.send(msg) #envio efetivo do objeto msg através do método send() que vem do Flask_Mail
+   return render_template('send.html', formContato=formContato) # Renderiza a página de confirmação de envio.
 
 ## Index
 @app.route('/')
