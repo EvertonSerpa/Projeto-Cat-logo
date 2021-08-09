@@ -67,7 +67,7 @@ class Horta(db.Model):
 
 
 #######Classe#########
-class Contato (db.model):
+class Contato (db.Model):
     nome = db.Collumn(db.String(25),primary_key=True, nullable=False)
     email = db.Collumn(db.String)
     mensagem = db.Collumn(db.Text)
