@@ -1,0 +1,288 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  color: #252422;
+  text-decoration: none;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+header{
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  /* display: none; */
+  display: flex;
+  flex-wrap: row wrap;
+  justify-content: space-between;
+  background-color: #e9ecef;
+  border-bottom: #9ef01a .1rem solid;
+}
+
+header div{
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  width: 50vh;
+}
+
+header div img{
+  height: 4rem;
+}
+
+header div h1{
+  text-align: center;
+  margin-left: 2rem;
+  letter-spacing: .1rem;
+}
+
+header nav{
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+header nav ul{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+}
+
+header nav ul li{
+  margin: auto 1rem;
+}
+
+header nav ul li a{
+  color: #38b000;
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+header nav ul li img{
+  height: 3rem;
+  border-radius: 50%;
+}
+
+header nav ul li img:hover{
+  cursor: pointer;
+}
+
+div#btn{
+  padding: 6rem;
+}
+
+div#btn button{
+  height: 2rem;
+  position: absolute;
+  top: 8rem;
+  right: 4rem;
+  width: 9rem;
+  border: unset;
+  border-radius: 8px;
+  background-color: #9f3;
+  color: #252422;
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all .3s;
+}
+
+div#btn button:hover{
+  color: #fffcf2;
+  background-color: #e65c00;
+  box-shadow: 0 0 1rem #ccc5b9;
+}
+
+main.container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2rem;
+}
+
+section#catalogo{
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: baseline;
+  margin: 0 auto;
+}
+
+section#catalogo div.card {
+  border: .1rem solid #d3d3d3;
+  width: 12rem;
+  height: 18rem;
+  display: flex;
+  /* display: none; */
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  border-radius: 2rem;
+  padding: 1rem;
+  box-shadow: 0 0 .3rem #a3a3a3;
+  margin: 1rem;
+}
+
+section#catalogo div.card img{
+  height: 5rem;
+}
+
+section#catalogo div.card div.infos{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+section#catalogo div.card div.infos p.title{
+  font-weight: 800;
+}
+
+section#catalogo div.card div.icons{
+  font-size: 1.4rem;
+}
+
+section#catalogo div.card div.icons i{
+  margin-bottom: 10px;
+  padding: 1rem;
+  transition: ease .3s;
+}
+
+#edit:hover{
+  color: #538d22;
+}
+
+#delete:hover{
+  cursor: pointer;
+  color: #d90429;
+}
+
+
+section#catalogo div.modal{
+  margin: 0 auto;
+  align-self: baseline;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+  background-color: #FFF;
+  height: 27rem;
+  width: 28rem;
+  border: .1rem solid #252422;
+  border-radius: 8px;
+  box-shadow: 0 0 .3rem #252422;
+  padding: 2rem;
+  pointer-events: none;
+}
+
+section#catalogo div.modal div.modal-content h3{
+  font-size: 2rem;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+}
+
+section#catalogo div.modal div.modal-content img{
+  height: 8rem;
+}
+
+section#catalogo div.modal div.modal-content p{
+  letter-spacing: .1rem;
+}
+
+section#catalogo div.modal div.modal-content div.icon-modal{
+  padding: 1rem;
+}
+
+section#catalogo div.modal div.modal-content div.icon-modal i{
+  font-size: 2rem;
+  transition: .3s ease;
+  margin: 0 1rem;
+}
+
+#modal-confirm{
+  color: #38b000;
+}
+
+#modal-cancel{
+  color: #d90429;
+  cursor: pointer;
+}
+
+/*************** Codigos referente aos formulário de adição de novo produto ***************/
+
+section#add-item{
+  border: .1rem solid #9ef01a;
+  border-radius: 8px;
+  height: 60vh;
+  width: 70vw;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+section#add-item h2{
+  text-align: center;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+}
+
+section#add-item form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 1rem
+}
+
+section#add-item form div{
+  margin: .5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* flex-flow: row wrap; */
+}
+
+section#add-item form div label{
+  text-align: right;
+  width: 6rem;
+  margin-right: 2rem;
+}
+
+section#add-item form div input{
+  width: 28vw;
+  border: unset;
+  border-bottom: .1rem solid #9ef01a;
+  border-right: .1rem solid #9ef01a;
+  border-bottom-right-radius: 8px;
+}
+
+section#add-item form button{
+  margin-top: 1.5rem;
+  height: 2rem;
+  width: 9rem;
+  border: unset;
+  border-radius: 8px;
+  background-color: #9f3;
+  color: #252422;
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all .3s;
+}
+
+section#add-item form button:hover{
+  color: #fffcf2;
+  background-color: #e65c00;
+  box-shadow: 0 0 1rem #ccc5b9;
+}
