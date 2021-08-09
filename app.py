@@ -67,10 +67,10 @@ class Horta(db.Model):
 
 
 #######Classe#########
-class Contato (db.Model):
-    nome = db.Collumn(db.String(25),primary_key=True, nullable=False)
-    email = db.Collumn(db.String)
-    mensagem = db.Collumn(db.Text)
+class Contato(db.Model):
+    nome = db.Column(db.String(25),primary_key=True, nullable=False)
+    email = db.Column(db.String)
+    mensagem = db.Column(db.Text)
     
     def __init__ (self, nome, email, mensagem):
       self.nome = nome
