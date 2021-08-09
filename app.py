@@ -67,12 +67,17 @@ class Horta(db.Model):
 
 
 #######Classe#########
-class Contato:
-   def __init__ (self, nome, email, mensagem):
+class Contato (db.model):
+    nome = db.Collumn(db.String(25),primary_key=True, nullable=False)
+    email = db.Collumn(db.String)
+    mensagem = db.Collumn(db.Text)
+    
+    def __init__ (self, nome, email, mensagem):
       self.nome = nome
       self.email = email
       self.mensagem = mensagem
-#########Rota#########
+
+######### Rotas #########
 
 # Rota de envio de email.
 @app.route('/send', methods=['GET', 'POST'])
@@ -87,7 +92,7 @@ def send():
 
       # Criando o objeto msg, que é uma instancia da Class Message do Flask_Mail
       msg = Message(
-         subject= 'Contato do seu Portfólio', #Assunto do email
+         subject= 'Contate o nosso time ', #Assunto do email
          sender=app.config.get("MAIL_USERNAME"), # Quem vai enviar o email, pega o email configurado no app (mail_settings)
          recipients=[app.config.get("MAIL_USERNAME"),'renan_jc9@yahoo.com.br','josep.macedo@outlook.com'], # Quem vai receber o email, mando pra mim mesmo, posso mandar pra mais de um email.
          # Corpo do email.
@@ -98,7 +103,7 @@ def send():
       mail.send(msg) #envio efetivo do objeto msg através do método send() que vem do Flask_Mail
    return render_template('send.html', formContato=formContato) # Renderiza a página de confirmação de envio.
 
-## Index
+## Index 
 @app.route('/')
 def index():
     return render_template('index.html')
