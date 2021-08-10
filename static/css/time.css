@@ -1,11 +1,28 @@
-.page2 {
+
+/* .bg {
+    background-image: url(../img/bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    background-attachment: fixed;
+} */
+
+.header{
     width: 100%;
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: flex;
 }
-  
+ 
+.logo {
+    display: flex;
+    top: 88px;
+    margin-top: 88px;
+    margin-left: 156px;
+    width: 175px;
+    height: 53px;
+}
 .time {
     display: flex;
     margin-left: 156px;
@@ -13,14 +30,14 @@
     margin-top: 150px;
     font-style: normal;
     font-weight: 600;
-    font-size: 54px;
+    font-size: 26px;
     line-height: 74px;
-    color: #ffffff;
+    color: #0f0f0f;
 }
 
-.border {
+/* .border {
     border: solid 1px red;
-}
+} */
   
 .wrapper {
     position: absolute;
@@ -177,13 +194,13 @@ section#contato form button:hover:disabled {
 }
     
 section#contato form button:hover {
-    background-color: #9ef01a;
+    background-color: #79f730;
     color: #fff;
 }
     
 section#contato div#redes a {
     text-decoration: none;
-    color: #9ef01a;
+    color: #79f730;
     font-size: 4rem;
     padding: 2rem;
 }
