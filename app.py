@@ -105,8 +105,8 @@ def send():
 
 ### Time ####
 
-@app.route('/index')
-def index():
+@app.route('/voltar')
+def voltar():
     return render_template('index.html')
 
 @app.route('/time')
