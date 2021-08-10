@@ -7,14 +7,12 @@ app = Flask(__name__)
 
 # Configuração do envio de email.
 mail_settings = {
-    "MAIL_SERVER": 'smtp.mailtrap.io',
-    "MAIL_PORT": 2525,
-    "MAIL_USERNAME": '5622d2e98706a9',
-    "MAIL_PASSWORD": 'f296da83b42768',
-    "MAIL_USE_TLS": True,
-    "MAIL_USE_SSL": False,
-   #  "MAIL_USERNAME": email,
-   #  "MAIL_PASSWORD": mail_senha
+    "MAIL_SERVER": 'smtp.gmail.com',
+    "MAIL_PORT": 465,
+    "MAIL_USE_TLS": False,
+    "MAIL_USE_SSL": True,
+    "MAIL_USERNAME": 'blueedtechgrupo3@gmail.com',
+    "MAIL_PASSWORD": 'Group3blue'
 }
 
 app.config.update(mail_settings) #atualizar as configurações do app com o dicionário mail_settings
@@ -94,7 +92,7 @@ def send():
       msg = Message(
          subject= 'Contate o nosso time ', #Assunto do email
          sender=app.config.get("MAIL_USERNAME"), # Quem vai enviar o email, pega o email configurado no app (mail_settings)
-         recipients=[app.config.get("MAIL_USERNAME"),'renan_jc9@yahoo.com.br','josep.macedo@outlook.com'], # Quem vai receber o email, mando pra mim mesmo, posso mandar pra mais de um email.
+         recipients=[app.config.get("MAIL_USERNAME")], # Quem vai receber o email, mando pra mim mesmo, posso mandar pra mais de um email.
          # Corpo do email.
          body=f'''O {formContato.nome} com o email {formContato.email}, te mandou a seguinte mensagem: 
          
