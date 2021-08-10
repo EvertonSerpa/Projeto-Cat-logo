@@ -105,6 +105,10 @@ def send():
 
 ### Time ####
 
+@app.route('/index')
+def index():
+    return render_template('index.html')
+
 @app.route('/time')
 def time():
     return render_template('time.html')
