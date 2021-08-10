@@ -11,8 +11,8 @@ mail_settings = {
     "MAIL_PORT": 465,
     "MAIL_USE_TLS": False,
     "MAIL_USE_SSL": True,
-    "MAIL_USERNAME": 'blueedtechgrupo3@gmail.com',
-    "MAIL_PASSWORD": 'Group3blue'
+    "MAIL_USERNAME": 'renandevblue@gmail.com',
+    "MAIL_PASSWORD": 'iophgt789'
 }
 
 app.config.update(mail_settings) #atualizar as configurações do app com o dicionário mail_settings
