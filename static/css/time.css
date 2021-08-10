@@ -1,12 +1,4 @@
 
-/* .bg {
-    background-image: url(../img/bg.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100%;
-    background-attachment: fixed;
-} */
-
 .header{
     width: 100%;
     height: 100vh;
@@ -35,10 +27,14 @@
     color: #0f0f0f;
 }
 
-/* .border {
-    border: solid 1px red;
-} */
-  
+.l1 {
+    font-weight: 700;
+    color: #ffffff;
+    display: flex;
+    padding-left: 1rem;
+    padding-top: 9px;
+}
+
 .wrapper {
     position: absolute;
     top: 68%;
