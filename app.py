@@ -105,8 +105,8 @@ def send():
 
 ### Time ####
 
-@app.route('/page2')
-def page2():
+@app.route('/time')
+def time():
     return render_template('time.html')
 
 ## Index 
