@@ -103,6 +103,12 @@ def send():
       mail.send(msg) #envio efetivo do objeto msg através do método send() que vem do Flask_Mail
    return render_template('send.html', formContato=formContato) # Renderiza a página de confirmação de envio.
 
+### Time ####
+
+@app.route('/page2')
+def page2():
+    return render_template('time.html')
+
 ## Index 
 @app.route('/')
 def index():
