@@ -1,3 +1,10 @@
+.bg {
+    background-image: url(../img/bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    background-attachment: fixed;
+}
 
 .header{
     width: 100%;
@@ -15,6 +22,7 @@
     width: 175px;
     height: 53px;
 }
+
 .time {
     display: flex;
     margin-left: 156px;
@@ -29,10 +37,11 @@
 
 .l1 {
     font-weight: 700;
-    color: #ffffff;
+    color: #0a0a0a;
     display: flex;
     padding-left: 1rem;
     padding-top: 9px;
+    
 }
 
 .wrapper {
