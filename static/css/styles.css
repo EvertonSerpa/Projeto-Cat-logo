@@ -5,20 +5,24 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
+
 html {
   scroll-behavior: smooth;
 }
+
 .bg {
-  background-image: url(../img/bg.png);
+  background-image: url(../img/BgNew.jpg); /* Se achar necessario, TROCAR */
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
   background-attachment: fixed;
 }
+
 .page1 {
   width: 100%;
   height: 100vh;
 }
+
 .logo {
   display: flex;
   top: 88px;
@@ -27,6 +31,7 @@ html {
   width: 175px;
   height: 53px;
 }
+
 .container {
   display: flex;
   justify-content: space-between;
@@ -36,6 +41,7 @@ html {
   margin-left: 156px;
   margin-bottom: 337px;
 }
+
 .l1 {
   font-weight: 700;
   color: #ffffff;
@@ -43,13 +49,16 @@ html {
   padding-left: 1rem;
   padding-top: 9px;
 }
+
 .t1 {
   font-style: normal;
   font-weight: 600;
   font-size: 54px;
   line-height: 74px;
   color: #ffffff;
+  display: flex;
 }
+
 .t2 {
   width: 500px;
   margin-top: 23px;
@@ -59,6 +68,7 @@ html {
   line-height: 49px;
   color: #ffffff;
 }
+
 .t3 {
   font-style: normal;
   font-weight: 600;
@@ -67,11 +77,16 @@ html {
   margin-bottom: 20px;
 }
 
-section#page1 header.logo a.link:hover{
+.futuro{
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
+
+section#page1 header.logo a.link:hover {
   text-decoration: underline 1px #ffffff;
 }
 
-section#page1 div.container main.login div.login__container form.login__form a.login__reset:hover{
+section#page1 div.container main.login div.login__container form.login__form a.login__reset:hover {
   text-decoration: underline 1px #B8B8B8;
 }
 
@@ -94,6 +109,7 @@ section#page1 div.container main.login div.login__container form.login__form a.l
   line-height: 74px;
   color: #ffffff;
 }
+
 .border {
   border: solid 1px red;
 }
@@ -141,6 +157,7 @@ a#button {
   display: flex;
   justify-content: center;
 }
+
 .card {
   display: flex;
   flex-direction: column;
@@ -153,11 +170,13 @@ a#button {
   background: rgb(255, 255, 255);
   border-radius: 30px;
 }
+
 .foto {
   position: flex;
   justify-content: center;
   margin-bottom: 35px;
 }
+
 .nome {
   display: flex;
   justify-content: center;
@@ -168,6 +187,7 @@ a#button {
   line-height: 24px;
   color: #0f0f0f;
 }
+
 .titulo {
   display: flex;
   justify-content: center;
@@ -177,6 +197,7 @@ a#button {
   line-height: 14px;
   color: #0f0f0f;
 }
+
 .icones {
   display: flex;
   justify-content: space-between;
@@ -184,10 +205,11 @@ a#button {
   width: 70px;
   margin-top: 35px;
 }
+
 .link {
   display: flex;
   align-items: center;
-  margin-left: 30px;  
+  margin-left: 30px;
   font-style: normal;
   font-weight: 00;
   font-size: 15px;
@@ -196,11 +218,162 @@ a#button {
   text-decoration: none;
 }
 
-section#page2 div.icones a#icon{
+section#page2 div.icones a#icon {
   position: relative;
 }
 
-section#page2 div.icones a#icon:hover{
+section#page2 div.icones a#icon:hover {
   transform: perspective(50px) translateZ(10px);
   transition: all 0.1s ease-in-out;
+}
+
+/* ======== ANIMAÇÕES E EFEITOS =========  */
+
+/* ~~~~ ROTAÇÃO DO LOGO ~~~~ */
+section#page1 header.logo a#logoH {
+  -webkit-animation: rotate-vertical 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+  animation: rotate-vertical 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+}
+
+section#page1 header.logo a#logoH:hover {
+  -webkit-animation: rotate-verticalH 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+  animation: rotate-verticalH 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+}
+
+@-webkit-keyframes rotate-vertical {
+  0% {
+    -webkit-transform: rotateY(0);
+    transform: rotateY(0);
+  }
+
+  100% {
+    -webkit-transform: rotateY(360deg);
+    transform: rotateY(360deg);
+  }
+}
+
+@keyframes rotate-vertical {
+  0% {
+    -webkit-transform: rotateY(0);
+    transform: rotateY(0);
+  }
+
+  100% {
+    -webkit-transform: rotateY(360deg);
+    transform: rotateY(360deg);
+  }
+}
+
+@-webkit-keyframes rotate-verticalH {
+  0% {
+    -webkit-transform: rotateY(0);
+    transform: rotateY(0);
+  }
+
+  100% {
+    -webkit-transform: rotateY(360deg);
+    transform: rotateY(360deg);
+  }
+}
+
+@keyframes rotate-verticalH {
+  0% {
+    -webkit-transform: rotateY(0);
+    transform: rotateY(0);
+  }
+
+  100% {
+    -webkit-transform: rotateY(360deg);
+    transform: rotateY(360deg);
+  }
+}
+
+/* ~~~~ TRACKING DOS TEXTOS ~~~~ */
+
+section#page1 div.container div.title #text1 {
+    -webkit-animation: slide-esq-txt1 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+            animation: slide-esq-txt1 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  }
+  
+ @-webkit-keyframes slide-esq-txt1 {
+  0% {
+    -webkit-transform: translateX(-1000px);
+            transform: translateX(-1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-esq-txt1 {
+  0% {
+    -webkit-transform: translateX(-1000px);
+            transform: translateX(-1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+section#page1 div.container div.title #text2 {
+  -webkit-animation: slide-esq-txt2 0.5s 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+          animation: slide-esq-txt2 0.5s 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@-webkit-keyframes slide-esq-txt2 {
+0% {
+  -webkit-transform: translateX(-1000px);
+          transform: translateX(-1000px);
+  opacity: 0;
+}
+100% {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  opacity: 1;
+}
+}
+@keyframes slide-esq-txt2 {
+0% {
+  -webkit-transform: translateX(-1000px);
+          transform: translateX(-1000px);
+  opacity: 0;
+}
+100% {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  opacity: 1;
+}
+}
+
+/* ~~~~ COLOR "FUTURO" ~~~~ */
+
+section#page1 div.container div.title h1 p.futuro {
+	-webkit-animation: color-change 3s linear infinite alternate both;
+	        animation: color-change 3s linear infinite alternate both;
+} 
+ @-webkit-keyframes color-change {
+  0% {
+    color: #19dcea;
+  }
+  50% {
+    color: #b22cff;
+  }
+  100% {
+    color: #ea2222;
+  }
+}
+@keyframes color-change {
+  0% {
+    color: #19dcea;
+  }
+  50% {
+    color: #b22cff;
+  }
+  100% {
+    color: #ea2222;
+  }
 }

@@ -40,7 +40,14 @@ header div h1{
   text-align: center;
   margin-left: 1rem;
   letter-spacing: .1rem;
+  font-size: 1.7rem;
+  font-weight: 600;
 }
+
+header div h1 a{
+  color: #38b000;
+}
+
 
 header nav{
   padding: 1rem;
@@ -55,8 +62,14 @@ header nav ul{
   list-style: none;
 }
 
-header nav ul li{
-  margin: auto 1rem;
+header nav ul li#perfilFechar{
+  margin-right: 1rem;
+  display: none;
+}
+
+header nav ul li#perfilAbrir{
+  margin-right: 1rem;
+  display: block;
 }
 
 header nav ul li a{
@@ -74,6 +87,44 @@ header nav ul li img:hover{
   cursor: pointer;
 }
 
+header nav ul.submenuPerfil{ /* SUBMENU */
+  height: 50%;
+  width: 0;
+  background-color: #e9ecef;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top:6rem;
+  right: 0;
+  z-index: 1;
+  overflow: hidden;
+  border-left: #9ef01a .1rem solid;
+  border-bottom: #9ef01a .1rem solid;
+  transition: width 0.3s;
+  text-align: center;
+}
+
+header nav ul li#perfilMenu{
+  line-height: 6rem;
+}
+header nav ul li#perfilMenu a{
+ font-size: 2rem;
+}
+
+header nav ul li#perfilMenu a:hover{
+  background-color: #9ef01a;
+  color: #ffffff;
+  width: 100%;
+ }
+ header nav ul li#perfilMenu a:hover > i#iconSair:hover{
+  background-color: #9ef01a;
+  color: #ffffff;
+ }
+
+header nav ul li#perfilMenu ul a i#iconSair{
+  padding-left: 1rem;
+  color: #38b000;
+}
 div#btn{
   padding: 6rem;
 }
@@ -259,8 +310,6 @@ section#add-item form button:hover{
 }
 
 /* FORM COM ANIMAÇÕES */
-
-/* form starting stylings ------------------------------- */
 .group        { 
   position:relative; 
   margin-bottom: 2.2rem; 
@@ -275,7 +324,7 @@ input         {
 }
 input:focus     { outline:none; }
 
-/* LABEL ======================================= */
+/* ======== LABEL ======== */
 label          {
   color:#999; 
   font-size:18px;
@@ -289,14 +338,13 @@ label          {
   -webkit-transition:0.2s ease all;
 }
 
-/* active state */
 input:focus ~ label, input:valid ~ label    {
   top:-20px;
   font-size:14px;
   color:#9ef01a;
 }
 
-/* BOTTOM BARS ================================= */
+/* ======== BOTTOM BARS ========*/
 .bar Ah{ 
   position:relative; 
   display:block; 
@@ -320,12 +368,11 @@ input:focus ~ label, input:valid ~ label    {
   right:50%; 
 }
 
-/* active state */
 input:focus ~ .bar:before, input:focus ~ .bar:after {
   width:50%;
 }
 
-/* HIGHLIGHTER ================================== */
+/* ======== HIGHLIGHTER ======== */
 .highlight {
   position:absolute;
   height:60%; 
@@ -336,14 +383,14 @@ input:focus ~ .bar:before, input:focus ~ .bar:after {
   opacity:0.5;
 }
 
-/* active state */
+/* STATUS ATIVO */
 input:focus ~ .highlight {
   -webkit-animation:inputHighlighter 0.3s ease;
   -moz-animation:inputHighlighter 0.3s ease;
   animation:inputHighlighter 0.3s ease;
 }
 
-/* ANIMATIONS ================ */
+/* ======== ANIMAÇÕES ======== */
 @-webkit-keyframes inputHighlighter {
   from { background:#9ef01a; }
   to  { width:0; background:transparent; }
