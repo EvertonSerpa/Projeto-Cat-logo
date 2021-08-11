@@ -1,13 +1,13 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, session, url_for
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
 ## Configuração do app passando os parametros de conexão com o banco de dados sqlite
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://qlkehnnv:jpzYaAeJILifKKQkh_GQDAi-I2t9YPuu@kesavan.db.elephantsql.com/qlkehnnv'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///catalogo.sqlite'
 
 # #Linha abaixo caso seja necessário utilizar banco de dados postgresql
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'postegresql://username:password@hostname-or-url/db-name'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://qlkehnnv:jpzYaAeJILifKKQkh_GQDAi-I2t9YPuu@kesavan.db.elephantsql.com/qlkehnnv'
 
 ## Linha remove um warning que fica aparecendo durante a execução do app com sqlalchemy
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
@@ -35,17 +35,18 @@ db = SQLAlchemy(app)
 class Horta(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     nome = db.Column(db.String(25), nullable=False)
-    quantidade = db.Column(db.Integer)
-    valor = db.Column(db.Float)
-    img = db.Column(db.Text)
+    tipo = db.Column(db.String(25), nullable=True)
+    quantidade = db.Column(db.Integer, nullable=True)
+    valor = db.Column(db.Float, nullable=True)
+    imagem = db.Column(db.String, nullable=True)
 
-    def __init__(self, tipo, nome, quantidade, valor, img) -> None:
+    def __init__(self, nome, tipo, quantidade, valor, img) -> None:
         super().__init__()
-        self.tipo = tipo
         self.nome = nome
+        self.tipo = tipo
         self.quantidade = quantidade
         self.valor = valor
-        self.img = img
+        self.imagem = img
 ##################################################################################
 
 ## Index
@@ -64,19 +65,14 @@ def catalogo():
 ## Routa de adicionar novo item ao catalogo | Create do CRUD
 @app.route('/catalogo/adicionar', methods=['GET', 'POST'])
 def adicionar():
-
-    # verifica o tempo de requisição, se for GET renderiza a tela de adicionar produto
-    if request.method == 'GET':
-        return render_template('adicionar.html')
-    
     # Se for POST pega o que tiver vindo dos campos e adiciona ao objeto prod
-    elif request.method == 'POST':
+    if request.method == 'POST':
         prod = Horta(
+            request.form['nome'],
             request.form['tipo'],
-            request.form['name'],
             request.form['quantidade'],
             request.form['valor'],
-            request.form['image']
+            request.form['imagem']
         )
 
         # Similar ao git githug, faz um add passando o objeto criado (prod) e em seguida da um commit
@@ -85,39 +81,32 @@ def adicionar():
         db.session.commit()
         return redirect('/catalogo')
 
-    # Else apenas para saciar o toc, nunca vai cair aqui
-    else:
-        pass
+@app.route('/catalogo/<id>')
+def modalInfo(id):
+    prod = Horta.query.get(id)
+    return render_template('catalogo.html', info=prod)
 
 ## Rota de alterar algum item do catálogo passando como parametro o id do item | Update do CRUD
-@app.route('/catalogo/alterar/<id>', methods=['GET', 'POST'])
+@app.route('/catalogo/edit/<id>', methods=['GET', 'POST'])
 def alterar(id):
     # atribuição da consulta ao banco à variavel prod
     prod = Horta.query.get(id)
 
-    # Assim como na rota adicionar, vericica se a requisição é 'GET' ou 'POST. Se for
-    # GET, renderiza a tela de alteração do item junto com as informações do consulta
-    # armazenado em prod
-    if request.method == 'GET':
-        return render_template('alterar.html', info=prod)
-    
     # Se for POST é feita a suas devidas alterações e dado um novo commit. Em seguida redireciona
     # para a rota catalogo
-    elif request.method == 'POST':
+    if request.method == 'POST':
+        prod.nome = request.form['nome']
         prod.tipo = request.form['tipo']
-        prod.nome = request.form['name']
         prod.quantidade = request.form['quantidade']
         prod.valor = request.form['valor']
-        prod.img = request.form['image']
+        prod.imgaem = request.form['imagem']
         db.session.commit()
-        return redirect('/catalogo')
+        return redirect(url_for('catalogo'))
 
-    # TOC
-    else:
-        pass
+    return render_template('editar.html', info=prod)
 
 ## Rota que remove um item do catálogo passando o id do item como parametro | Delete do CRUD
-@app.route('/catalogo/deletar/<id>')
+@app.route('/catalogo/delete/<id>')
 def deletar(id):
     # Como nos casos anteriores, é feito uma consulta no banco passando o id do item como
     # paramentro e o resultado é armazenado na variável prod. Então é feito um delete no prod
@@ -132,6 +121,11 @@ def deletar(id):
 def sobre():
     return render_template('sobre.html')
 
+
+@app.route('/<slug>')
+@app.route('/catalogo/<slug>')
+def not_found(slug):
+    return render_template('notFound.html', slug=slug)
 
 if __name__ == '__main__':
     # comando para criar o banco de dados
