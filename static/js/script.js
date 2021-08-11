@@ -31,10 +31,10 @@ let nome = false
 let valor = false
 let quantidade = false
 
-btnCancel.style.display = 'block'
-areaAdicionar.style.display = 'flex'
-btnAdd.style.display = 'none'
-areaCatalogo.style.display = 'none'
+btnCancel.style.display = 'none'
+areaAdicionar.style.display = 'none'
+btnAdd.style.display = 'block'
+areaCatalogo.style.display = 'flex'
 
 btnAdd.addEventListener('click', () => {
     btnCancel.style.display = 'Block'

@@ -5,8 +5,59 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Página não encontrada</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500&display=swap');
+
+            *{
+                margin: 0;
+                padding: 0;
+                font-family: 'Montserrat', sans-serif;
+
+            }
+            
+            main{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+            }
+            
+            main div{
+                margin-bottom: 2rem;
+            }
+            
+            main div p{
+                text-align: center;
+                letter-spacing: .1rem;
+                margin: 1rem;
+            }
+            
+            main div p a{
+                text-decoration: none;
+                color: inherit;
+                cursor: pointer;
+                transition: .3s ease;
+            }
+            
+            main div p a:hover{
+                color: #eb5e28;
+                text-shadow: 2rem 2rem .1rem #211a1d;
+            }
+
+            main img{    
+                height: 16rem;
+            }
+        </style>
     </head>
     <body>
-        {{slug}}
+        <main>
+            <div>
+                <p>Ops! Tivemos um problema aqui.</p>
+                <P>A rota <strong>/{{slug}}</strong> não existe.</P>
+                <p><a href="/">Click aqui</a> para voltar a página inicial.</p>
+            </div>
+            <img src="{{ url_for('static', filename='../static/img/notfound-professional.png') }}" alt="Imagem page not found">
+        </main>
     </body>
 </html>
