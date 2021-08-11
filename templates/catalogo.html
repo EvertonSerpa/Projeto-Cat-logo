@@ -5,8 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Catálago</title>
-        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
-        <link rel="stylesheet" href="../static/css/catalogo.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/catalogo.css') }}">
     </head>
 
     <body>
@@ -41,23 +40,25 @@
                     </div>
                     <div class="icons">
                         <a href="/catalogo/edit/{{info.id}}"><i id="edit" class="far fa-edit"></i></a>
-                        <a href="/catalogo/delete/{{info.id}}" class="modal-trigger"><i data-target="{{info.id}}" id="delete" class="far fa-trash-alt"></i></a>
+                        <a href="/catalogo/{{info.id}}" id="delete"><i class="far fa-trash-alt"></i></a>
                     </div>
                 </div>
-                <!-- Código do para implementação do modal, ainda não funcional -->
-                <!-- <div class="modal" id="{{info.id}}">
-                    <div class="modal-content">
-                        <h3>Confirmação de Exclusão</h3>
-                        <img src="{{info.imagem}}" alt="Imagem {{info.nome}}">
-                        <p>Deseja mesmo exluir este item do catálogo?</p>
-                        <div class="icon-modal">
-                            <a href="/catalogo/delete/{{info.id}}"><i id="modal-confirm" class="far fa-check-circle"></i></a>
-                            <i id="modal-cancel" class="far fa-times-circle"></i>
-                        </div>
-                    </div>
-                </div> -->
                 {% endfor %}
             </section>
+
+            {% if info != undefined %}
+            <section id="modal">
+                <div class="modal-content" data-key="{{info.id}}">
+                    <h3>Confirmação de Exclusão</h3>
+                    <img src="{{info.imagem}}" alt="Imagem {{info.nome}}">
+                    <p>Deseja mesmo exluir este item do catálogo?</p>
+                    <div class="icon-modal">
+                        <a href="/catalogo/delete/{{info.id}}"><i id="modal-confirm" class="far fa-check-circle"></i></a>
+                        <a href="/catalogo#"><i id="modal-cancel" class="far fa-times-circle"></i></a>
+                    </div>
+                </div>
+            </section>
+            {% endif %}
 
             <section id="add-item">
                 <h2>Adicionar Novo Produto</h2>
@@ -89,7 +90,6 @@
         
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script src="https://kit.fontawesome.com/2df7780fbc.js" crossorigin="anonymous"></script>
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
         <script src="../static/js/script.js"></script>
     </body>
 </html>
