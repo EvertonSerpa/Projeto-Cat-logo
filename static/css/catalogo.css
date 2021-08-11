@@ -13,11 +13,12 @@ html{
   scroll-behavior: smooth;
 }
 
+
+/**************** Início do estilo do header ****************/
 header{
   position: fixed;
   z-index: 999;
   width: 100%;
-  /* display: none; */
   display: flex;
   flex-wrap: row wrap;
   justify-content: space-between;
@@ -38,7 +39,7 @@ header div img{
 
 header div h1{
   text-align: center;
-  margin-left: 1rem;
+  margin-left: 2rem;
   letter-spacing: .1rem;
 }
 
@@ -73,7 +74,12 @@ header nav ul li img{
 header nav ul li img:hover{
   cursor: pointer;
 }
+/***************** Fim do estilo do header *****************/
 
+
+
+
+/******* Início do estilo dos botões Adicionar/Cancelar *******/
 div#btn{
   padding: 6rem;
 }
@@ -82,7 +88,7 @@ div#btn button{
   height: 2rem;
   position: absolute;
   top: 8rem;
-  right: 1rem;
+  right: 4rem;
   width: 9rem;
   border: unset;
   border-radius: 8px;
@@ -99,14 +105,24 @@ div#btn button:hover{
   background-color: #e65c00;
   box-shadow: 0 0 1rem #ccc5b9;
 }
+/******* Fim do estilo dos botões Adicionar/Cancelar *******/
 
+
+/* Estilo da tag main.container onde tudo será renderizado */
 main.container{
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0 2rem;
 }
+/***********************************************************/
 
+
+
+
+
+
+/********** Início do estilo do section#catalogo **********/
 section#catalogo{
   display: flex;
   flex-flow: row wrap;
@@ -164,11 +180,12 @@ section#catalogo div.card div.icons i{
   cursor: pointer;
   color: #d90429;
 }
+/************ Fim do estilo do section#catalogo ************/
 
 
 
-/********************* Estilo do modal de deleção de item *********************/
 
+/************* Estilo do modal de deleção de item *************/
 section#modal{
   position: fixed;
   left: 0;
@@ -229,29 +246,40 @@ section#modal div.modal-content div.icon-modal i{
   color: #d90429;
   cursor: pointer;
 }
+/******* Final do estilo do modal de deleção de item *******/
 
 
 
 
-
-/*************** Codigos referente aos formulário de adição de novo produto ***************/
-
+/****** Estilo do formulário de adição de novo item ******/
 section#add-item{
   border: .1rem solid #9ef01a;
   border-radius: 8px;
-  height: 60vh;
+  height: 90vh;
   width: 70vw;
   padding: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 2rem;
 }
 
 section#add-item h2{
   text-align: center;
   letter-spacing: .1rem;
   text-transform: uppercase;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+section#add-item form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 95%;
+  height: 98%;
 }
 
 section#add-item form button{
@@ -260,16 +288,23 @@ section#add-item form button{
   width: 9rem;
   border: unset;
   border-radius: 8px;
-  background-color: #9f3;
-  color: #252422;
   font-weight: 500;
   font-size: 16px;
-  cursor: pointer;
   transition: all .3s;
-  margin-left: 22rem;
+}
+button.btn-disable{
+  background-color: #403d39;
+  color: #fffcf2;
+  cursor: default;
 }
 
-section#add-item form button:hover{
+button.btn-active{
+  background-color: #9ef01a;
+  color: #252422;
+  cursor: pointer;
+}
+
+button.btn-active:hover{
   color: #fffcf2;
   background-color: #e65c00;
   box-shadow: 0 0 1rem #ccc5b9;
@@ -278,27 +313,25 @@ section#add-item form button:hover{
 /* FORM COM ANIMAÇÕES */
 
 /* form starting stylings ------------------------------- */
-.group        { 
-  position:relative; 
+.group{ 
+  position: relative; 
   margin-bottom: 2.2rem; 
 }
-input         {
-  font-size:18px;
-  padding:10px 10px 10px 5px;
-  display:block;
-  width:52rem;
-  border:none;
-  border-bottom:1px solid #757575;
+section#add-item form input{
+  font-size: 18px;
+  padding: .6rem;
+  width: 50vw;
+  border: none;
+  border-bottom: .1rem solid #757575;
 }
 input:focus     { outline:none; }
 
 /* LABEL ======================================= */
-label          {
+label{
   color:#999; 
   font-size:18px;
   font-weight:normal;
   position:absolute;
-  pointer-events:none;
   left:5px;
   top:10px;
   transition:0.2s ease all; 
@@ -373,3 +406,5 @@ input:focus ~ .highlight {
   from { background:#9ef01a; }
   to  { width:0; background:transparent; }
 }
+/*********************************************************/
+

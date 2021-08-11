@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<!---Liguagem de marcação de hiper texto--->
+<html lang="pt-br">
+  <!---Linguagem do documento--->
+  <head>
+    <meta charset="UTF-8" />
+    <!---A tag META descreve o conteudo de todos os metadados do arquivo. O CHARSER UTF8 representa qualquer caractere de qualquer idioma.--->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!--- Permite configurar a página para ser renderizada em outra versão do Internet Explorer.--->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!---A VIEWPORT customiza a resolução em que o navegador renderiza no dispositivo.--->
+    <link rel="stylesheet" href="..//static/css/time.css"/>
+    <!-- <link rel="stylesheet" href="../static/css/login.css" /> -->
+    <!---Ligando o index.html com o styles.csss.--->
+    <link icon="icon" href="../static/img/logo.png" />
+    <title>Time | Conato</title>
+</head>
+<body class="bg">
+    <section>
+      <header class="logo">
+        <a href="#"><img src="../static/img/logo.png" /></a>
+        <h1 class="l1">Agrotech</h1>
+        <a href="/voltar" class="link">Home</a>
+      </header>
+    </section>
+    <section class="page2" id="page2">
+        <h2 class="time">Nosso time de desenvolvedores</h2>
+        <div class="cards">
+          <div class="card">
+            <div class="foto">
+              <img src="../static/img/foto1.png" />
+            </div>
+            <div>
+              <p class="nome">Gustavo Fogia</p>
+              <p class="titulo">Front-End Developer</p>
+              <p class="titulo">Rio de Janeiro - RJ</p>
+            </div>
+            <div class="icones">
+              <a href="https://github.com/gustavofogia" target="_blank">
+                <img src="../static/img/github.png" />
+              </a>
+              <a href="https://www.linkedin.com/in/gustavofogia/" target="_blank">
+                <img src="../static/img/linkedin.png" />
+              </a>
+            </div>
+          </div>
+          <div class="card">
+            <div class="foto">
+              <img src="../static/img/foto2.png" />
+            </div>
+            <div>
+              <p class="nome">Gustavo Souza</p>
+              <p class="titulo">Front-End Developer</p>
+              <p class="titulo">Rio de Janeiro - RJ</p>
+            </div>
+            <div class="icones">
+              <a href="https://www.linkedin.com" target="_blank">
+                <img src="../static/img/github.png" />
+              </a>
+              <a href="https://www.facebook.com/" target="_blank">
+                <img src="../static/img/linkedin.png" />
+              </a>
+            </div>
+          </div>
+          <div class="card">
+              <div class="foto">
+                <img src="../static/img/foto3.png" />
+              </div>
+              <div>
+                <p class="nome">Jose Macedo</p>
+                <p class="titulo">Back-End Developer</p>
+                <p class="titulo">Rio de Janeiro - RJ</p>
+              </div>
+              <div class="icones">
+                <a href="https://github.com/ArseniumGX" target="_blank">
+                  <img src="../static/img/github.png" />
+                </a>
+                <a href="https://www.linkedin.com/in/arseniumgx/" target="_blank">
+                  <img src="../static/img/linkedin.png" />
+                </a>
+              </div>
+            </div>
+            <div class="card">
+              <div class="foto">
+                <img src="../static/img/foto4.png" />
+              </div>
+              <div>
+                <p class="nome">Renan Batista</p>
+                <p class="titulo">Back-End Developer</p>
+                <p class="titulo">Rio de Janeiro - RJ</p>
+              </div>
+              <div class="icones">
+                <a href="https://github.com/Dev33Renan" target="_blank">
+                  <img src="../static/img/github.png" />
+                </a>
+                <a href="https://www.linkedin.com/in/renan-batista-742304190/" target="_blank">
+                  <img src="../static/img/linkedin.png" />
+                </a>
+              </div>
+            </div>
+            <div class="card">
+              <div class="foto">
+                <img src="../static/img/foto5.png" />
+              </div>
+              <div>
+                <p class="nome">Everton Serpa</p>
+                <p class="titulo">Back-End Developer</p>
+                <p class="titulo">Rio de Janeiro - RJ</p>
+              </div>
+              <div class="icones">
+                <a href="https://github.com/EvertonSerpa" target="_blank">
+                  <img src="../static/img/github.png" />
+                </a>
+                <a href="https://www.linkedin.com/in/everton-serpa-47a5204a/" target="_blank">
+                  <img src="../static/img/linkedin.png" />
+                </a>
+              </div>
+            </div>
+            </div>
+    </section>
+    <section id="contato">
+
+        <div id="redes">
+            <a href="https://www.linkedin.com/in/thicode/" target="_blank">
+                <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+            </a>
+
+            <a href="https://github.com/codethi" target="_blank">
+                <i class="fa fa-github" aria-hidden="true"></i>
+            </a>
+
+            <a href="https://www.instagram.com/thi.code/" target="_blank">
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <h3>Entre em contato com a nossa equipe</h3>
+
+        <form action='/send' method="POST">
+            <label for="nome">Nome</label>
+            <input type="text" placeholder="Digite seu nome" id="nome" name="nome">
+
+            <label for="email">E-mail</label>
+            <input type="email" placeholder="Digite seu email" id="email" name="email">
+
+
+            <label for="mensagem">Mensagem</label>
+            <textarea name="mensagem" id="mensagem" cols="30" rows="10" placeholder="Digite sua mensagem"></textarea>
+
+            <button type="submit" id="enviar">Enviar</button>
+
+        </form>
+
+        
+
+    </section>
+   <script src="../static/js/script.js"></script>
+</body>
+</html>
+
+
+

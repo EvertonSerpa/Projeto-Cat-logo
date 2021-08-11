@@ -1,21 +1,33 @@
-from flask import Flask, render_template, request, redirect, session, url_for
+from flask import Flask, render_template, request, redirect, url_for
+from flask_mail import Mail, Message
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
+# Configuração do envio de email.
+mail_settings = {
+    "MAIL_SERVER": 'smtp.gmail.com',
+    "MAIL_PORT": 465,
+    "MAIL_USE_TLS": False,
+    "MAIL_USE_SSL": True,
+    "MAIL_USERNAME": 'blueedtechgrupo3@gmail.com',
+    "MAIL_PASSWORD": 'Group3blue'
+}
+
+app.config.update(mail_settings) #atualizar as configurações do app com o dicionário mail_settings
+mail = Mail(app) # atribuir a class Mail o app atual.
+
 ## Configuração do app passando os parametros de conexão com o banco de dados sqlite
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///catalogo.sqlite'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///catalogo.sqlite'
 
 # #Linha abaixo caso seja necessário utilizar banco de dados postgresql
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://qlkehnnv:jpzYaAeJILifKKQkh_GQDAi-I2t9YPuu@kesavan.db.elephantsql.com/qlkehnnv'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://qlkehnnv:jpzYaAeJILifKKQkh_GQDAi-I2t9YPuu@kesavan.db.elephantsql.com/qlkehnnv'
 
 ## Linha remove um warning que fica aparecendo durante a execução do app com sqlalchemy
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 
 ## Criação de uma nova instância do SQLAlchemy passando como parametro o app
 db = SQLAlchemy(app)
-
-#Teste
 
 ##################################################################################
 ## Definição da classe Horta que herda os comportamentos de db.Model. Dessa forma
@@ -49,10 +61,63 @@ class Horta(db.Model):
         self.imagem = img
 ##################################################################################
 
-## Index
+
+#######Classe#########
+class Contato(db.Model):
+    nome = db.Column(db.String(25),primary_key=True, nullable=False)
+    email = db.Column(db.String)
+    mensagem = db.Column(db.Text)
+    
+    def __init__ (self, nome, email, mensagem):
+      self.nome = nome
+      self.email = email
+      self.mensagem = mensagem
+
+
+
+
+
+
+
+
+
+######### Rotas #########
+
+# Rota de envio de email.
+@app.route('/send', methods=['GET', 'POST'])
+def send():
+   if request.method == 'POST':
+      # Capiturando as informações do formulário com o request do Flask e criando o objeto formContato
+      formContato = Contato(
+         request.form['nome'],
+         request.form['email'],
+         request.form['mensagem']
+      )
+
+      # Criando o objeto msg, que é uma instancia da Class Message do Flask_Mail
+      msg = Message(
+         subject= 'Contate o nosso time ', #Assunto do email
+         sender=app.config.get("MAIL_USERNAME"), # Quem vai enviar o email, pega o email configurado no app (mail_settings)
+         recipients=[app.config.get("MAIL_USERNAME")], # Quem vai receber o email, mando pra mim mesmo, posso mandar pra mais de um email.
+         # Corpo do email.
+         body=f'''O {formContato.nome} com o email {formContato.email}, te mandou a seguinte mensagem: 
+         
+               {formContato.mensagem}''' 
+         )
+      mail.send(msg) #envio efetivo do objeto msg através do método send() que vem do Flask_Mail
+   return render_template('send.html', formContato=formContato) # Renderiza a página de confirmação de envio.
+
+
+## Index 
 @app.route('/')
 def index():
     return render_template('index.html')
+
+### Time ####
+
+@app.route('/time')
+def time():
+    return render_template('time.html')
 
 ## Rota catalogo onde é exibido os items cadastrado no catalogo | Read do CRUD
 @app.route('/catalogo')
@@ -129,5 +194,6 @@ def not_found(slug):
 
 if __name__ == '__main__':
     # comando para criar o banco de dados
+    # db.drop_all()
     db.create_all()
     app.run(debug=True, host='0.0.0.0', port=3000)

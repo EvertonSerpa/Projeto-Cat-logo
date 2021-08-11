@@ -22,11 +22,31 @@
             </nav>
         </header>
     
+
+
+
+
+
+
+
+
+
+        <!-- Região destinada aos botões -->
         <div id="btn">
             <button class="btn-adicionar">Adicionar</button>
             <button class="btn-cancelar">Cancelar</button>
         </div>
 
+
+
+
+
+
+
+
+
+
+        <!-- Área do listagem do catálogo -->
         <main class="container">
             <section id="catalogo">
                 {% for info in infos %}
@@ -46,6 +66,16 @@
                 {% endfor %}
             </section>
 
+
+
+
+
+
+
+
+
+
+            <!-- Modal de confirmação de exclusão -->
             {% if info != undefined %}
             <section id="modal">
                 <div class="modal-content" data-key="{{info.id}}">
@@ -60,40 +90,50 @@
             </section>
             {% endif %}
 
+
+
+
+
+
+
+
+
+
+            <!-- Formulário de adição de item -->
             <section id="add-item">
                 <h2>Adicionar Novo Produto</h2>
                 <form action="/catalogo/adicionar" method="POST">
                     <div class="group">
-                        <input type="text" name="nome" id="nome" required>
+                        <input type="text" name="nome" id="nome">
                         <span class="highlight"></span>
                         <span class="bar"></span>
                         <label for="nome">Nome</label>
                     </div>
                     <div class="group">
-                        <input type="text" name="tipo" id="tipo" required>
+                        <input type="text" name="tipo" id="tipo">
                         <span class="highlight"></span>
                         <span class="bar"></span>
                         <label for="tipo">Tipo</label>
                     </div>
                     <div class="group"> 
-                        <input type="text" name="valor" id="valor" required>
+                        <input type="text" name="valor" id="valor">
                         <span class="highlight"></span>
                         <span class="bar"></span>
                         <label for="valor">Valor</label>
                     </div>
                     <div class="group">
-                        <input type="text" name="quantidade" id="quantidade" required>
+                        <input type="text" name="quantidade" id="quantidade">
                         <span class="highlight"></span>
                         <span class="bar"></span>
                         <label for="quantidade">Quantidade</label>
                     </div>
                     <div class="group">
-                        <input type="text" name="imagem" id="imagem" required>
+                        <input type="text" name="imagem" id="imagem">
                         <span class="highlight"></span>
                         <span class="bar"></span>
                         <label for="imagem">Imagem</label>
                     </div>
-                    <button>Cadastrar</button>
+                    <button class="btn-disable" disabled>Cadastrar</button>
                 </form>
             </section>
         </main>
