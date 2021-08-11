@@ -38,7 +38,7 @@ header div img{
 
 header div h1{
   text-align: center;
-  margin-left: 2rem;
+  margin-left: 1rem;
   letter-spacing: .1rem;
 }
 
@@ -82,7 +82,7 @@ div#btn button{
   height: 2rem;
   position: absolute;
   top: 8rem;
-  right: 4rem;
+  right: 1rem;
   width: 9rem;
   border: unset;
   border-radius: 8px;
@@ -254,36 +254,6 @@ section#add-item h2{
   text-transform: uppercase;
 }
 
-section#add-item form{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  padding: 1rem
-}
-
-section#add-item form div{
-  margin: .5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* flex-flow: row wrap; */
-}
-
-section#add-item form div label{
-  text-align: right;
-  width: 6rem;
-  margin-right: 2rem;
-}
-
-section#add-item form div input{
-  width: 28vw;
-  border: unset;
-  border-bottom: .1rem solid #9ef01a;
-  border-right: .1rem solid #9ef01a;
-  border-bottom-right-radius: 8px;
-}
-
 section#add-item form button{
   margin-top: 1.5rem;
   height: 2rem;
@@ -296,10 +266,110 @@ section#add-item form button{
   font-size: 16px;
   cursor: pointer;
   transition: all .3s;
+  margin-left: 22rem;
 }
 
 section#add-item form button:hover{
   color: #fffcf2;
   background-color: #e65c00;
   box-shadow: 0 0 1rem #ccc5b9;
+}
+
+/* FORM COM ANIMAÇÕES */
+
+/* form starting stylings ------------------------------- */
+.group        { 
+  position:relative; 
+  margin-bottom: 2.2rem; 
+}
+input         {
+  font-size:18px;
+  padding:10px 10px 10px 5px;
+  display:block;
+  width:52rem;
+  border:none;
+  border-bottom:1px solid #757575;
+}
+input:focus     { outline:none; }
+
+/* LABEL ======================================= */
+label          {
+  color:#999; 
+  font-size:18px;
+  font-weight:normal;
+  position:absolute;
+  pointer-events:none;
+  left:5px;
+  top:10px;
+  transition:0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all;
+}
+
+/* active state */
+input:focus ~ label, input:valid ~ label    {
+  top:-20px;
+  font-size:14px;
+  color:#9ef01a;
+}
+
+/* BOTTOM BARS ================================= */
+.bar Ah{ 
+  position:relative; 
+  display:block; 
+  width:52rem; 
+}
+.bar:before, .bar:after   {
+  content:'';
+  height:2px; 
+  width:0;
+  bottom:1px; 
+  position:absolute;
+  background:#9ef01a; 
+  transition:0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all;
+}
+.bar:before {
+  left:50%;
+}
+.bar:after {
+  right:50%; 
+}
+
+/* active state */
+input:focus ~ .bar:before, input:focus ~ .bar:after {
+  width:50%;
+}
+
+/* HIGHLIGHTER ================================== */
+.highlight {
+  position:absolute;
+  height:60%; 
+  width:100px; 
+  top:25%; 
+  left:0;
+  pointer-events:none;
+  opacity:0.5;
+}
+
+/* active state */
+input:focus ~ .highlight {
+  -webkit-animation:inputHighlighter 0.3s ease;
+  -moz-animation:inputHighlighter 0.3s ease;
+  animation:inputHighlighter 0.3s ease;
+}
+
+/* ANIMATIONS ================ */
+@-webkit-keyframes inputHighlighter {
+  from { background:#9ef01a; }
+  to  { width:0; background:transparent; }
+}
+@-moz-keyframes inputHighlighter {
+  from { background:#9ef01a; }
+  to  { width:0; background:transparent; }
+}
+@keyframes inputHighlighter {
+  from { background:#9ef01a; }
+  to  { width:0; background:transparent; }
 }

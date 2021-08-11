@@ -63,25 +63,35 @@
             <section id="add-item">
                 <h2>Adicionar Novo Produto</h2>
                 <form action="/catalogo/adicionar" method="POST">
-                    <div>
+                    <div class="group">
+                        <input type="text" name="nome" id="nome" required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
                         <label for="nome">Nome</label>
-                        <input type="text" name="nome" id="nome">
                     </div>
-                    <div>
+                    <div class="group">
+                        <input type="text" name="tipo" id="tipo" required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
                         <label for="tipo">Tipo</label>
-                        <input type="text" name="tipo" id="tipo">
                     </div>
-                    <div>
+                    <div class="group"> 
+                        <input type="text" name="valor" id="valor" required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
                         <label for="valor">Valor</label>
-                        <input type="text" name="valor" id="valor">
                     </div>
-                    <div>
+                    <div class="group">
+                        <input type="text" name="quantidade" id="quantidade" required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
                         <label for="quantidade">Quantidade</label>
-                        <input type="text" name="quantidade" id="quantidade">
                     </div>
-                    <div>
+                    <div class="group">
+                        <input type="text" name="imagem" id="imagem" required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
                         <label for="imagem">Imagem</label>
-                        <input type="text" name="imagem" id="imagem" placeholder="Copie aqui o link da imagem">
                     </div>
                     <button>Cadastrar</button>
                 </form>
