@@ -53,6 +53,10 @@ class Horta(db.Model):
 def index():
     return render_template('index.html')
 
+@app.route('/catalogo')
+def opcao3():
+    return render_template('index.html')
+
 ## Rota catalogo onde é exibido os items cadastrado no catalogo | Read do CRUD
 @app.route('/catalogo')
 def catalogo():
