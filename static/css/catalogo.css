@@ -18,7 +18,7 @@ html{
 header{
   position: fixed;
   z-index: 999;
-  width: 100%;
+  width: 100vw;
   display: flex;
   flex-wrap: row wrap;
   justify-content: space-between;
@@ -30,7 +30,6 @@ header div{
   padding: 1rem;
   display: flex;
   align-items: center;
-  width: 50vh;
 }
 
 header div img{
