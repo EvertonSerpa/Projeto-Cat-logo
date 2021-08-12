@@ -53,7 +53,7 @@ class Horta(db.Model):
 def index():
     return render_template('index.html')
 
-@app.route('/catalogo')
+@app.route('/opcao3')
 def opcao3():
     return render_template('index.html')
 
