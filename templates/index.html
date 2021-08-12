@@ -1,45 +1,66 @@
-<!DOCTYPE html> <!---Liguagem de marcação de hiper texto--->
-<html lang="pt-br"><!---Linguagem do documento--->
-<head>
-    <meta charset="UTF-8"><!---A tag META descreve o conteudo de todos os metadados do arquivo. O CHARSER UTF8 representa qualquer caractere de qualquer idioma.--->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"><!--- Permite configurar a página para ser renderizada em outra versão do Internet Explorer.--->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!---A VIEWPORT customiza a resolução em que o navegador renderiza no dispositivo.--->
-    <link rel="stylesheet" href="../static/css/styles.css"> <!---Ligando o index.html com o styles.csss.--->
-    <link icon="icon" href="../static/img/logo.png">
-    <title>Agrotech</title><!---Define o título do documento, mostrado na barra de título de um navegador ou na aba da página.--->
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/css/styles.css" />
+    <!-- <link rel="stylesheet" href="../static/css/login.css" /> -->
+    <title>Agrotech</title>
+  </head>
 
-</head>
+  <body>
+    <header>
+      <div>
+        <a href="#" class="logo"><img src="../static/img/logo.png" /></a>
+        <h1>Agrotech</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="/time" class="link">Desenvolvedores</a></li>
+        </ul>
+      </nav>
+    </header>
+    
+    <main>
+      <section id="sobre">
+          <h2>O <span class="futuro">Futuro</span> dos Alimentos</h2>
+          <h3>Tecnologia, sustentabilidade e mais saúde</h3>
+          <p>Este é um catalogo sobre produtos orgânico e vegano.</p>
+      </section>
 
-    <body class="bg">
-      
-    <section class="page1 border">
-        <header class="logo border">
-            <img src="../static/img/logo-name.png">
-        </header>
-        <div class="container border">
-            <div class="title">
-                <h1 class="t1">O Futuro dos Alimentos</h1>
-                <h2 class="t2 border">Tecnologia, sustentabilidade e mais saúde</h2>
-            </div>
-            <div class="login">
-                <h3 class="t3 border">ADMIN LOGIN</h3>
-                <button class="button" type="button">Entrar</button>
-            </div>
-        </div>
-    </section>
-    <section class="page2 border">
+      <section id="area">
         <div>
-            <h2 class="Time">Time</h2>
-            <div class="cards">
-
-            </div>
-
+          <h3>Acesse nosso catalogo</h3>
+          <a href="/catalogo"><button>Acessar</button></a>
         </div>
-    </section>
-        
 
-        <script src="../static/js/main.js"></script><!---Ligando o index.html com o mains.js--->
-    </body>
+
+        <p>Ou faça login para alterar o catálogo</p>
 
 
 
+        <div id="login">
+          <h3>LOGIN</h3>
+          <form method="POST" action="/login">
+            <input type="email" placeholder="E-mail" name="email">
+            <span class="login__input-border"></span>
+            <input type="password" placeholder="Senha" name="password">
+            <span class="login__input-border"></span>
+            <div class="btn">
+              <button>Login</button>
+              <div class="btn-cadastrar">
+                <a href="/cadastro">Cadastrar</a>
+              </div>
+            </div>
+            {% if get_flashed_messages() %}
+            <p>{{ get_flashed_messages()[0] }}</p>
+            {% endif %}
+          </form>
+        </div>
+      </section>
+
+      
+    </main>
+  </body>
+</html>

@@ -1,0 +1,455 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  color: #252422;
+  text-decoration: none;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+
+/**************** Início do estilo do header ****************/
+header{
+  position: fixed;
+  z-index: 999;
+  width: 100vw;
+  display: flex;
+  flex-wrap: row wrap;
+  justify-content: space-between;
+  background-color: #e9ecef;
+  border-bottom: #9ef01a .1rem solid;
+}
+
+header div{
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+header div img{
+  height: 4rem;
+}
+
+header div h1{
+  text-align: center;
+  margin-left: 2rem;
+  letter-spacing: .1rem;
+}
+
+header nav{
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+header nav ul{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+}
+
+header nav ul li#perfilFechar{
+  margin-right: 1rem;
+  display: none;
+}
+
+header nav ul li#perfilAbrir{
+  margin-right: 1rem;
+  display: block;
+}
+
+header nav ul li a{
+  color: #38b000;
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+header nav ul li img{
+  height: 3rem;
+  border-radius: 50%;
+}
+
+header nav ul li img:hover{
+  cursor: pointer;
+}
+
+header nav ul.submenuPerfil{ /* SUBMENU */
+  height: 50%;
+  width: 0;
+  background-color: #e9ecef;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top:6rem;
+  right: 0;
+  z-index: 1;
+  overflow: hidden;
+  border-left: #9ef01a .1rem solid;
+  border-bottom: #9ef01a .1rem solid;
+  transition: width 0.3s;
+  text-align: center;
+}
+
+header nav ul li#perfilMenu{
+  line-height: 4rem;
+}
+header nav ul li#perfilMenu a{
+ font-size: 1rem;
+}
+
+header nav ul li#perfilMenu a:hover{
+  background-color: #9ef01a;
+  color: #ffffff;
+  width: 100%;
+ }
+
+ header nav ul li#perfilMenu a:hover > i#iconSair:hover{
+  background-color: #9ef01a;
+  color: #ffffff;
+ }
+
+header nav ul li#perfilMenu ul a i#iconSair{
+  padding-left: 1rem;
+  color: #38b000;
+}
+/***************** Fim do estilo do header *****************/
+
+
+
+
+/******* Início do estilo dos botões Adicionar/Cancelar *******/
+div#btn{
+  padding: 6rem;
+}
+
+div#btn button{
+  height: 2rem;
+  position: absolute;
+  top: 8rem;
+  right: 4rem;
+  width: 9rem;
+  border: unset;
+  border-radius: 8px;
+  background-color: #9f3;
+  color: #252422;
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all .3s;
+}
+
+div#btn button:hover{
+  color: #fffcf2;
+  background-color: #e65c00;
+  box-shadow: 0 0 1rem #ccc5b9;
+}
+/******* Fim do estilo dos botões Adicionar/Cancelar *******/
+
+
+/* Estilo da tag main.container onde tudo será renderizado */
+main.container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2rem;
+}
+/***********************************************************/
+
+
+
+
+
+
+/********** Início do estilo do section#catalogo **********/
+section#catalogo{
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: baseline;
+  margin: 0 auto;
+}
+
+section#catalogo div.card {
+  border: .1rem solid #d3d3d3;
+  width: 12rem;
+  height: 18rem;
+  display: flex;
+  /* display: none; */
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  border-radius: 2rem;
+  padding: 1rem;
+  box-shadow: 0 0 .3rem #a3a3a3;
+  margin: 1rem;
+}
+
+section#catalogo div.card img{
+  height: 5rem;
+}
+
+section#catalogo div.card div.infos{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+section#catalogo div.card div.infos p.title{
+  font-weight: 800;
+}
+
+section#catalogo div.card div.icons{
+  font-size: 1.4rem;
+}
+
+section#catalogo div.card div.icons i{
+  margin-bottom: 10px;
+  padding: 1rem;
+  transition: ease .3s;
+}
+
+#edit:hover{
+  color: #538d22;
+}
+
+#delete:hover{
+  cursor: pointer;
+  color: #d90429;
+}
+/************ Fim do estilo do section#catalogo ************/
+
+
+
+
+/************* Estilo do modal de deleção de item *************/
+section#modal{
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background-color: #FFFFFF80;
+  display: flex;
+  transition: .3s ease;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+  text-align: center;
+}
+
+section#modal div.modal-content{
+  width: 25rem;
+  height: 60vh;
+  background-color: #FFF;
+  border-radius: 8px;
+  box-shadow: 0 0 .2rem #282623;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 1rem;
+}
+
+section#modal div.modal-content h3{
+  font-size: 1.3rem;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+}
+
+section#modal div.modal-content img{
+  height: 8rem;
+}
+
+section#modal div.modal-content p{
+  letter-spacing: .1rem;
+}
+
+section#modal div.modal-content div.icon-modal{
+  padding: 1rem;
+}
+
+section#modal div.modal-content div.icon-modal i{
+  font-size: 2rem;
+  transition: .3s ease;
+  margin: 0 1rem;
+}
+
+#modal-confirm{
+  color: #38b000;
+}
+
+#modal-cancel{
+  color: #d90429;
+  cursor: pointer;
+}
+/******* Final do estilo do modal de deleção de item *******/
+
+
+
+
+/****** Estilo do formulário de adição de novo item ******/
+section#add-item{
+  border: .1rem solid #9ef01a;
+  border-radius: 8px;
+  height: 90vh;
+  width: 70vw;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+section#add-item h2{
+  text-align: center;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+section#add-item form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 95%;
+  height: 98%;
+}
+
+section#add-item form button{
+  margin-top: 1.5rem;
+  height: 2rem;
+  width: 9rem;
+  border: unset;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 16px;
+  transition: all .3s;
+}
+button.btn-disable{
+  background-color: #403d39;
+  color: #fffcf2;
+  cursor: default;
+}
+
+button.btn-active{
+  background-color: #9ef01a;
+  color: #252422;
+  cursor: pointer;
+}
+
+button.btn-active:hover{
+  color: #fffcf2;
+  background-color: #e65c00;
+  box-shadow: 0 0 1rem #ccc5b9;
+}
+
+/* FORM COM ANIMAÇÕES */
+
+/* form starting stylings ------------------------------- */
+.group{ 
+  position: relative; 
+  margin-bottom: 2.2rem; 
+}
+section#add-item form input{
+  font-size: 18px;
+  padding: .6rem;
+  width: 50vw;
+  border: none;
+  border-bottom: .1rem solid #757575;
+}
+input:focus     { outline:none; }
+
+/* LABEL ======================================= */
+label{
+  color:#999; 
+  font-size:18px;
+  font-weight:normal;
+  position:absolute;
+  left:5px;
+  top:10px;
+  transition:0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all;
+}
+
+/* active state */
+input:focus ~ label, input:valid ~ label    {
+  top:-20px;
+  font-size:14px;
+  color:#9ef01a;
+}
+
+/* BOTTOM BARS ================================= */
+.bar Ah{ 
+  position:relative; 
+  display:block; 
+  width:52rem; 
+}
+.bar:before, .bar:after   {
+  content:'';
+  height:2px; 
+  width:0;
+  bottom:1px; 
+  position:absolute;
+  background:#9ef01a; 
+  transition:0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all;
+}
+.bar:before {
+  left:50%;
+}
+.bar:after {
+  right:50%; 
+}
+
+/* active state */
+input:focus ~ .bar:before, input:focus ~ .bar:after {
+  width:50%;
+}
+
+/* HIGHLIGHTER ================================== */
+.highlight {
+  position:absolute;
+  height:60%; 
+  width:100px; 
+  top:25%; 
+  left:0;
+  pointer-events:none;
+  opacity:0.5;
+}
+
+/* active state */
+input:focus ~ .highlight {
+  -webkit-animation:inputHighlighter 0.3s ease;
+  -moz-animation:inputHighlighter 0.3s ease;
+  animation:inputHighlighter 0.3s ease;
+}
+
+/* ANIMATIONS ================ */
+@-webkit-keyframes inputHighlighter {
+  from { background:#9ef01a; }
+  to  { width:0; background:transparent; }
+}
+@-moz-keyframes inputHighlighter {
+  from { background:#9ef01a; }
+  to  { width:0; background:transparent; }
+}
+@keyframes inputHighlighter {
+  from { background:#9ef01a; }
+  to  { width:0; background:transparent; }
+}
+/*********************************************************/
+

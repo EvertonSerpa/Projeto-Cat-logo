@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Catálago</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/catalogo.css') }}">
+    </head>
+
+    <body>
+        <header>
+            <div>
+                <img src="../static/img/logo.png" alt="Logo Agrotech">
+                <h1><a href="/">Agrotech</a></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li class="perfil" id="perfilFechar"><img id="imgperfil" src="../static/img/perfil.jpg"
+                            alt="Foto perfil" onclick="fecharMenu()">
+                    <li class="perfil2" id="perfilAbrir"><img id="imgperfil" src="../static/img/perfil.jpg"
+                            alt="Foto perfil" onclick="abrirMenu()">
+                    </li>
+                    <li id="perfilMenu"> <!-- SUBMENU LATERAL (AO CLICAR NO PERFIL) -->
+                        <ul class="submenuPerfil" id="submenu">
+                            <a id="opcao1" href="#">Perfil</a>
+                            <a id="opcao1" href="#">Configuração</a>
+                            <a id="opcao2" href="#">Gerenciar acesso</a>
+                            <a id="opcao3" href="/">Sair
+                            <!-- <i id="iconSair" class="fas fa-sign-out-alt"></i> -->
+                            </a>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+    
+
+
+
+
+
+
+
+
+
+        <!-- Região destinada aos botões -->
+        <div id="btn">
+            <button class="btn-adicionar">Adicionar</button>
+            <button class="btn-cancelar">Cancelar</button>
+        </div>
+
+
+
+
+
+
+
+
+
+
+        <!-- Área do listagem do catálogo -->
+        <main class="container">
+            <section id="catalogo">
+                {% for info in infos %}
+                <div class="card">
+                    <img src="{{info.imagem}}" alt="Imagem {{info.nome}}">
+                    <div class="infos">
+                        <p class="title">{{info.nome}}</p>
+                        <p>{{info.tipo}}</p>
+                        <p><strong>R$</strong> {{info.valor}}</p>
+                        <p><strong>QTD.</strong> {{info.quantidade}}</p>
+                    </div>
+                    <div class="icons">
+                        {% if current_user.is_authenticated %}
+                        <a href="/catalogo/edit/{{info.id}}"><i id="edit" class="far fa-edit"></i></a>
+                        <a href="/catalogo/{{info.id}}" id="delete"><i class="far fa-trash-alt"></i></a>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            </section>
+
+
+
+
+
+
+
+
+
+
+            <!-- Modal de confirmação de exclusão -->
+            {% if info != undefined %}
+            <section id="modal">
+                <div class="modal-content" data-key="{{info.id}}">
+                    <h3>Confirmação de Exclusão</h3>
+                    <img src="{{info.imagem}}" alt="Imagem {{info.nome}}">
+                    <p>Deseja mesmo exluir este item do catálogo?</p>
+                    <div class="icon-modal">
+                        <a href="/catalogo/delete/{{info.id}}"><i id="modal-confirm" class="far fa-check-circle"></i></a>
+                        <a href="/catalogo#"><i id="modal-cancel" class="far fa-times-circle"></i></a>
+                    </div>
+                </div>
+            </section>
+            {% endif %}
+
+
+
+
+
+
+
+
+
+
+            <!-- Formulário de adição de item -->
+            <section id="add-item">
+                <h2>Adicionar Novo Produto</h2>
+                <form action="/catalogo/adicionar" method="POST">
+                    <div class="group">
+                        <input type="text" name="nome" id="nome">
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label for="nome">Nome</label>
+                    </div>
+                    <div class="group">
+                        <input type="text" name="tipo" id="tipo">
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label for="tipo">Tipo</label>
+                    </div>
+                    <div class="group"> 
+                        <input type="text" name="valor" id="valor">
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label for="valor">Valor</label>
+                    </div>
+                    <div class="group">
+                        <input type="text" name="quantidade" id="quantidade">
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label for="quantidade">Quantidade</label>
+                    </div>
+                    <div class="group">
+                        <input type="text" name="imagem" id="imagem">
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label for="imagem">Imagem</label>
+                    </div>
+                    <button class="btn-disable" disabled>Cadastrar</button>
+                </form>
+            </section>
+        </main>
+        
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/2df7780fbc.js" crossorigin="anonymous"></script>
+        <script src="../static/js/script.js"></script>
+        <script src="../static/js/catalogo.js"></script>
+    </body>
+</html>

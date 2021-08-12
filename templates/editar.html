@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Catalogo | Edição</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/editar.css') }}">
+    </head>
+    <body>
+      <main>
+          <h2>Editar Produto</h2>
+          <img src="{{info.imagem}}" alt="Imagem {{info.nome}}">
+          <form action="/catalogo/edit/{{info.id}}" method="POST">
+              <div class="group">
+                  <label for="nome">Nome</label>
+                  <input type="text" name="nome" id="nome" value="{{info.nome}}">
+              </div>
+              <div class="group">
+                  <label for="tipo">Tipo</label>
+                  <input type="text" name="tipo" id="tipo" value="{{info.tipo}}">
+              </div>
+              <div class="group">
+                  <label for="valor">Valor</label>
+                  <input type="text" name="valor" id="valor" value="{{info.valor}}">
+              </div>
+              <div class="group">
+                  <label for="quantidade">Quantidade</label>
+                  <input type="text" name="quantidade" id="quantidade" value="{{info.quantidade}}">
+              </div>
+              <div class="group">
+                  <label for="imagem">Imagem</label>
+                  <input type="text" name="imagem" id="imagem" placeholder="Copie aqui o link da imagem" value="{{info.imagem}}">
+              </div>
+              <div class="btns">
+                  <button>Alterar</button>
+                  <div class="btn-fake">
+                    <a href="/catalogo">Cancelar</a>
+                  </div>
+              </div>
+          </form>
+      </main>
+    </body>
+</html>
