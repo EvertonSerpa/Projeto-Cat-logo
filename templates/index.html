@@ -1,149 +1,63 @@
 <!DOCTYPE html>
-<!---Liguagem de marcação de hiper texto--->
 <html lang="pt-br">
-  <!---Linguagem do documento--->
   <head>
     <meta charset="UTF-8" />
-    <!---A tag META descreve o conteudo de todos os metadados do arquivo. O CHARSER UTF8 representa qualquer caractere de qualquer idioma.--->
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <!--- Permite configurar a página para ser renderizada em outra versão do Internet Explorer.--->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!---A VIEWPORT customiza a resolução em que o navegador renderiza no dispositivo.--->
     <link rel="stylesheet" href="../static/css/styles.css" />
-    <link rel="stylesheet" href="../static/css/login.css" />
-    <!---Ligando o index.html com o styles.csss.--->
-    <link icon="icon" href="../static/img/logo.png" />
+    <!-- <link rel="stylesheet" href="../static/css/login.css" /> -->
     <title>Agrotech</title>
-    <!---Define o título do documento, mostrado na barra de título de um navegador ou na aba da página.--->
   </head>
+
   <body class="bg">
-    <section class="page1" id="page1">
-      <header class="logo">
+    <header class="logo">
+      <div class="logo">
         <a href="#"><img src="../static/img/logo.png" /></a>
-        <h1 class="l1">Agrotech</h1>
-        <a href="#page1" class="link">Home</a>
-        <a href="#page2" class="link">Time</a>
-      </header>
-      <div class="container">
-        <div class="title">
-          <h1 class="t1">O Futuro dos Alimentos</h1>
-          <h2 class="t2">Tecnologia, sustentabilidade e mais saúde</h2>
+        <h1>Agrotech</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="/time" class="link">Desenvolvedores</a></li>
+        </ul>
+      </nav>
+    </header>
+    
+    <main>
+      <section id="sobre">
+          <h2>O Futuro dos Alimentos</h2>
+          <h3>Tecnologia, sustentabilidade e mais saúde</h3>
+          <p>Este é um catalogo sobre produtos orgânico e vegano.</p>
+      </section>
+
+      <section id="area">
+        <div>
+          <h3>Acesse nosso catalogo</h3>
+          <a href="/catalogo"><button>Acessar</button></a>
         </div>
-        <main class="login">
-          <div class="login__container">
-            <h1 class="login__title">LOGIN</h1>
-            <form class="login__form">
-              <input class="login__input" type="email" placeholder="E-mail" />
-              <span class="login__input-border"></span>
-              <input class="login__input" type="password" placeholder="Senha"/>
-              <span class="login__input-border"></span>
-              <div class="btn_02">
-              <button class="login__submit">Login</button>
-              <button class="cadastro__submit">Cadastrar</button></a>
+
+
+        <p>Ou faça login para alterar o catálogo</p>
+
+
+
+        <div id="login">
+          <h3>LOGIN</h3>
+          <form method="POST" action="/login">
+            <input type="email" placeholder="E-mail" name="email">
+            <span class="login__input-border"></span>
+            <input type="password" placeholder="Senha" name="senha">
+            <span class="login__input-border"></span>
+            <div class="btn">
+              <button>Login</button>
+              <div class="btn-cadastrar">
+                <a href="/cadastro">Cadastrar</a>
               </div>
-              
-              <a class="login__reset" href="#">Esqueceu a senha?</a>
-            </form>
-          </div>
-        </main>
-          <!-- FIM DA DIV DO BOTÃO -->
+            </div>
+          </form>
         </div>
-      </div>
-    </section>
-    <section class="page2" id="page2">
-      <h2 class="time">Time</h2>
-      <div class="cards">
-        <div class="card">
-          <div class="foto">
-            <img src="../static/img/foto1.png" />
-          </div>
-          <div>
-            <p class="nome">Gustavo Fogia</p>
-            <p class="titulo">Front-End Developer</p>
-            <p class="titulo">Rio de Janeiro - RJ</p>
-          </div>
-          <div class="icones">
-            <a id="icon" href="https://github.com/gustavofogia" target="_blank">
-              <img src="../static/img/github.png" />
-            </a>
-            <a id="icon" href="https://www.linkedin.com/in/gustavofogia/" target="_blank">
-              <img src="../static/img/linkedin.png" />
-            </a>
-          </div>
-        </div>
-        <div class="card">
-          <div class="foto">
-            <img src="../static/img/foto2.png" />
-          </div>
-          <div>
-            <p class="nome">Gustavo Souza</p>
-            <p class="titulo">Front-End Developer</p>
-            <p class="titulo">São Paulo - SP</p>
-          </div>
-          <div class="icones">
-            <a id="icon" href="https://github.com/SSilvaGustavo" target="_blank">
-              <img src="../static/img/github.png" />
-            </a>
-            <a id="icon" href="https://www.linkedin.com/in/gustavo-souza-a833ba1a1/" target="_blank">
-              <img src="../static/img/linkedin.png" />
-            </a>
-          </div>
-        </div>
-        <div class="card">
-            <div class="foto">
-              <img src="../static/img/foto3.png" />
-            </div>
-            <div>
-              <p class="nome">Jose Macedo</p>
-              <p class="titulo">Back-End Developer</p>
-              <p class="titulo">Santa Catarina - SC</p>
-            </div>
-            <div class="icones">
-              <a id="icon" href="https://github.com/ArseniumGX" target="_blank">
-                <img src="../static/img/github.png" />
-              </a>
-              <a id="icon" href="https://www.linkedin.com/in/arseniumgx/" target="_blank">
-                <img src="../static/img/linkedin.png" />
-              </a>
-            </div>
-          </div>
-          <div class="card">
-            <div class="foto">
-              <img src="../static/img/foto4.png" />
-            </div>
-            <div>
-              <p class="nome">Renan Batista</p>
-              <p class="titulo">Back-End Developer</p>
-              <p class="titulo">Rio de Janeiro - RJ</p>
-            </div>
-            <div class="icones">
-              <a id="icon" href="https://github.com/Dev33Renan" target="_blank">
-                <img src="../static/img/github.png" />
-              </a>
-              <a id="icon" href="https://www.linkedin.com/in/renan-batista-742304190/" target="_blank">
-                <img src="../static/img/linkedin.png" />
-              </a>
-            </div>
-          </div>
-          <div class="card">
-            <div class="foto">
-              <img src="../static/img/foto5.png" />
-            </div>
-            <div>
-              <p class="nome">Everton Serpa</p>
-              <p class="titulo">Back-End Developer</p>
-              <p class="titulo">Fortaleza - CE</p>
-            </div>
-            <div class="icones">
-              <a id="icon" href="https://github.com/EvertonSerpa" target="_blank">
-                <img src="../static/img/github.png" />
-              </a>
-              <a id="icon" href="https://www.linkedin.com/in/everton-serpa-47a5204a/" target="_blank">
-                <img src="../static/img/linkedin.png" />
-              </a>
-            </div>
-          </div>
-      </div>
-    </section>
-</body>
+      </section>
+
+      
+    </main>
+  </body>
 </html>
