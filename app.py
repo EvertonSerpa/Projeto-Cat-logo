@@ -1,6 +1,8 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, session
+from cryptography.fernet import Fernet
 from flask_mail import Mail, Message
 from flask_sqlalchemy import SQLAlchemy
+from flask_login import LoginManager, UserMixin, current_user, login_required, logout_user, login_user
 
 app = Flask(__name__)
 
@@ -14,20 +16,24 @@ mail_settings = {
     "MAIL_PASSWORD": 'Group3blue'
 }
 
+logado = False
+
 app.config.update(mail_settings) #atualizar as configurações do app com o dicionário mail_settings
 mail = Mail(app) # atribuir a class Mail o app atual.
 
 ## Configuração do app passando os parametros de conexão com o banco de dados sqlite
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///catalogo.sqlite'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///catalogo.sqlite'
 
 # #Linha abaixo caso seja necessário utilizar banco de dados postgresql
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://qlkehnnv:jpzYaAeJILifKKQkh_GQDAi-I2t9YPuu@kesavan.db.elephantsql.com/qlkehnnv'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://qlkehnnv:jpzYaAeJILifKKQkh_GQDAi-I2t9YPuu@kesavan.db.elephantsql.com/qlkehnnv'
 
 ## Linha remove um warning que fica aparecendo durante a execução do app com sqlalchemy
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+app.config['SECRET_KEY'] = b'_5#y2L"F4Q8z\n\xec]/'
 
 ## Criação de uma nova instância do SQLAlchemy passando como parametro o app
 db = SQLAlchemy(app)
+login = LoginManager(app)
 
 ##################################################################################
 ## Definição da classe Horta que herda os comportamentos de db.Model. Dessa forma
@@ -63,27 +69,57 @@ class Horta(db.Model):
 
 
 #######Classe#########
-class Contato(db.Model):
-    nome = db.Column(db.String(25),primary_key=True, nullable=False)
-    email = db.Column(db.String)
-    mensagem = db.Column(db.Text)
-    
+class Contato():
     def __init__ (self, nome, email, mensagem):
       self.nome = nome
       self.email = email
       self.mensagem = mensagem
 
 
+class User(UserMixin, db.Model):
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    firstname = db.Column(db.String(25), nullable=False)
+    lastname = db.Column(db.String(40), nullable=False)
+    email = db.Column(db.String(50), nullable=False)
+    password = db.Column(db.LargeBinary, nullable=False)
+    key = db.Column(db.LargeBinary, nullable=False)
 
+    def __init__(self, fname, lname, email, password) -> None:
+        super().__init__()
+        self.firstname = fname
+        self.lastname= lname
+        self.email = email
+        self.password = password
+        self.key = Fernet.generate_key()
 
+    def encrypt_pwd(self) -> None:
+        f = Fernet(self.key)
+        self.password = f.encrypt(self.password.encode(encoding="UTF-8", errors="strict"))
 
+    def decrypt_pwd(self) -> bytes:
+        f = Fernet(self.key)
+        return f.decrypt(self.password)
 
+    def check_password(self, pwd) -> bool:
+        return pwd == self.decrypt_pwd().decode()
 
 
 
 ######### Rotas #########
 
 # Rota de envio de email.
+
+## Index 
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+### Time ####
+
+@app.route('/time')
+def time():
+    return render_template('time.html')
+
 @app.route('/send', methods=['GET', 'POST'])
 def send():
    if request.method == 'POST':
@@ -103,21 +139,42 @@ def send():
          body=f'''O {formContato.nome} com o email {formContato.email}, te mandou a seguinte mensagem: 
          
                {formContato.mensagem}''' 
-         )
+        )
       mail.send(msg) #envio efetivo do objeto msg através do método send() que vem do Flask_Mail
    return render_template('send.html', formContato=formContato) # Renderiza a página de confirmação de envio.
 
+@app.route('/cadastro', methods=['GET', 'POST'])
+def cadastro():
+    if request.method == 'POST':
+        user = User(
+            request.form['firstname'],
+            request.form['lastname'],
+            request.form['email'],
+            request.form['password']
+        )
 
-## Index 
-@app.route('/')
-def index():
-    return render_template('index.html')
+        user.encrypt_pwd()
+        db.session.add(user)
+        db.session.commit()
+        return redirect('/')
 
-### Time ####
+    return render_template('cadastro.html')
 
-@app.route('/time')
-def time():
-    return render_template('time.html')
+
+@login.user_loader
+def load_user(id):
+    return User.query.get(int(id))
+
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        user = User.query.filter_by(email=request.form['email']).first()
+        if user and user.check_password(request.form['password']):
+            login_user(user, remember=True)
+            db.session.commit()
+            logado = True
+        return redirect(url_for('catalogo'))
 
 ## Rota catalogo onde é exibido os items cadastrado no catalogo | Read do CRUD
 @app.route('/catalogo')
@@ -125,7 +182,7 @@ def catalogo():
     # Atribuo a variavel horta que vai armazenar uma lista com a consulta ao banco e joga
     # as informações para a página catalogo onde tudo será renderizado
     horta = Horta.query.all()
-    return render_template('catalogo.html', infos=horta)
+    return render_template('catalogo.html', infos=horta, logado=logado)
 
 ## Routa de adicionar novo item ao catalogo | Create do CRUD
 @app.route('/catalogo/adicionar', methods=['GET', 'POST'])
@@ -181,12 +238,8 @@ def deletar(id):
     db.session.commit()
     return redirect('/catalogo')
 
-## Rota que leva a página Sobre com as informações dos desenvolvedores
-@app.route('/sobre')
-def sobre():
-    return render_template('sobre.html')
 
-
+# Rota para páginas não encontradas
 @app.route('/<slug>')
 @app.route('/catalogo/<slug>')
 def not_found(slug):
