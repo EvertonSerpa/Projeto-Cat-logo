@@ -95,7 +95,7 @@ main{
 
 
 section#sobre{
-  background-color: #25242299;
+  background-color: #252422c2;
   height: 18rem;
   width: 32rem;
   display: flex;
@@ -249,4 +249,155 @@ section#area div#login form div.btn div.btn-cadastrar a{
 
 section#area div#login form div.btn div.btn-cadastrar:hover{
   background-position: right;
+}
+
+.futuro{
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
+
+
+header div a{
+  -webkit-animation: rotate-vertical 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+  animation: rotate-vertical 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+}
+
+header div a:hover{
+  -webkit-animation: rotate-verticalH 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+  animation: rotate-verticalH 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+}
+
+@-webkit-keyframes rotate-vertical {
+  0% {
+    -webkit-transform: rotateY(0);
+    transform: rotateY(0);
+  }
+
+  100% {
+    -webkit-transform: rotateY(360deg);
+    transform: rotateY(360deg);
+  }
+}
+
+@keyframes rotate-vertical {
+  0% {
+    -webkit-transform: rotateY(0);
+    transform: rotateY(0);
+  }
+
+  100% {
+    -webkit-transform: rotateY(360deg);
+    transform: rotateY(360deg);
+  }
+}
+
+@-webkit-keyframes rotate-verticalH {
+  0% {
+    -webkit-transform: rotateY(0);
+    transform: rotateY(0);
+  }
+
+  100% {
+    -webkit-transform: rotateY(360deg);
+    transform: rotateY(360deg);
+  }
+}
+
+@keyframes rotate-verticalH {
+  0% {
+    -webkit-transform: rotateY(0);
+    transform: rotateY(0);
+  }
+
+  100% {
+    -webkit-transform: rotateY(360deg);
+    transform: rotateY(360deg);
+  }
+}
+
+section#sobre h2 {
+  -webkit-animation: slide-esq-txt1 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+          animation: slide-esq-txt1 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@-webkit-keyframes slide-esq-txt1 {
+  0% {
+    -webkit-transform: translateX(-1000px);
+            transform: translateX(-1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-esq-txt1 {
+  0% {
+    -webkit-transform: translateX(-1000px);
+            transform: translateX(-1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+section#sobre h3{
+  -webkit-animation: slide-esq-txt2 0.5s 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+          animation: slide-esq-txt2 0.5s 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@-webkit-keyframes slide-esq-txt2 {
+  0% {
+    -webkit-transform: translateX(-1000px);
+            transform: translateX(-1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-esq-txt2 {
+  0% {
+    -webkit-transform: translateX(-1000px);
+            transform: translateX(-1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+span.futuro {
+  -webkit-animation: color-change 3s linear infinite alternate both;
+          animation: color-change 3s linear infinite alternate both;
+} 
+@-webkit-keyframes color-change {
+  0% {
+    color: #19dcea;
+  }
+  50% {
+    color: #b22cff;
+  }
+  100% {
+    color: #ea2222;
+  }
+}
+@keyframes color-change {
+  0% {
+    color: #19dcea;
+  }
+  50% {
+    color: #b22cff;
+  }
+  100% {
+    color: #ea2222;
+  }
 }

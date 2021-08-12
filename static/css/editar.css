@@ -1,0 +1,114 @@
+*{
+    margin: 0;
+    padding: 0;
+
+}
+
+main{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+main h2{
+    text-align: center;
+    letter-spacing: .1rem;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+}
+
+main img{
+    height: 15rem;
+}
+main form{
+    border: .1rem solid #9ef01a;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 70vw;
+}
+
+main form div.btns{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 15rem;
+}
+
+main form div.btns button{
+    margin-top: 1.5rem;
+    height: 2rem;
+    width: 6rem;
+    border: unset;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 16px;
+    transition: all .3s;
+    background-color: #9ef01a;
+    color: #252422;
+    cursor: pointer;
+}
+
+main form div.btns button:hover{
+    color: #fffcf2;
+    background-color: #e65c00;
+    box-shadow: 0 0 1rem #ccc5b9;
+}
+
+main form div.btns div.btn-fake{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.5rem;
+    height: 2rem;
+    width: 6rem;
+    border: unset;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 16px;
+    transition: all .3s;
+    background-color: #9ef01a;
+    color: #252422;
+    cursor: pointer;
+}
+
+main form div.btns div.btn-fake:hover{
+    color: #fffcf2;
+    background-color: #e65c00;
+    box-shadow: 0 0 1rem #ccc5b9;
+}
+
+main form div.btns div.btn-fake a{
+    text-decoration: none;
+    color: #252422;
+}
+
+main form div.btns div.btn-fake a:hover{
+    color: #fffcf2;
+}
+
+main form div.group{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: .5rem;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+}
+
+main form div.group label{
+    letter-spacing: .1rem;
+    text-align: right;
+    margin-right: .2rem;
+    width: 16rem;
+}
+
+main form div.group input{
+    width: 23rem;
+}

@@ -1,8 +1,9 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 from cryptography.fernet import Fernet
+from flask.helpers import flash, get_flashed_messages
 from flask_mail import Mail, Message
 from flask_sqlalchemy import SQLAlchemy
-from flask_login import LoginManager, UserMixin, current_user, login_required, logout_user, login_user
+from flask_login import LoginManager, UserMixin, current_user, login_user
 
 app = Flask(__name__)
 
@@ -16,16 +17,16 @@ mail_settings = {
     "MAIL_PASSWORD": 'Group3blue'
 }
 
-logado = False
 
+app.config['REMEMBER_COOKIE_PATH'] = '/catalogo'
 app.config.update(mail_settings) #atualizar as configurações do app com o dicionário mail_settings
 mail = Mail(app) # atribuir a class Mail o app atual.
 
 ## Configuração do app passando os parametros de conexão com o banco de dados sqlite
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///catalogo.sqlite'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///catalogo.sqlite'
 
 # #Linha abaixo caso seja necessário utilizar banco de dados postgresql
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://qlkehnnv:jpzYaAeJILifKKQkh_GQDAi-I2t9YPuu@kesavan.db.elephantsql.com/qlkehnnv'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://qlkehnnv:jpzYaAeJILifKKQkh_GQDAi-I2t9YPuu@kesavan.db.elephantsql.com/qlkehnnv'
 
 ## Linha remove um warning que fica aparecendo durante a execução do app com sqlalchemy
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
@@ -173,8 +174,11 @@ def login():
         if user and user.check_password(request.form['password']):
             login_user(user, remember=True)
             db.session.commit()
-            logado = True
-        return redirect(url_for('catalogo'))
+            return redirect(url_for('catalogo'))
+        else:
+            flash('Dados incorretos!')
+            return redirect(url_for("index"))
+
 
 ## Rota catalogo onde é exibido os items cadastrado no catalogo | Read do CRUD
 @app.route('/catalogo')
@@ -182,7 +186,7 @@ def catalogo():
     # Atribuo a variavel horta que vai armazenar uma lista com a consulta ao banco e joga
     # as informações para a página catalogo onde tudo será renderizado
     horta = Horta.query.all()
-    return render_template('catalogo.html', infos=horta, logado=logado)
+    return render_template('catalogo.html', infos=horta, current_user=current_user)
 
 ## Routa de adicionar novo item ao catalogo | Create do CRUD
 @app.route('/catalogo/adicionar', methods=['GET', 'POST'])
@@ -203,10 +207,14 @@ def adicionar():
         db.session.commit()
         return redirect('/catalogo')
 
+
+
+# Code do modal
 @app.route('/catalogo/<id>')
 def modalInfo(id):
     prod = Horta.query.get(id)
     return render_template('catalogo.html', info=prod)
+
 
 ## Rota de alterar algum item do catálogo passando como parametro o id do item | Update do CRUD
 @app.route('/catalogo/edit/<id>', methods=['GET', 'POST'])
@@ -227,6 +235,7 @@ def alterar(id):
 
     return render_template('editar.html', info=prod)
 
+
 ## Rota que remove um item do catálogo passando o id do item como parametro | Delete do CRUD
 @app.route('/catalogo/delete/<id>')
 def deletar(id):
@@ -237,6 +246,11 @@ def deletar(id):
     db.session.delete(prod)
     db.session.commit()
     return redirect('/catalogo')
+
+
+
+
+
 
 
 # Rota para páginas não encontradas

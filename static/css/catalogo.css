@@ -55,8 +55,14 @@ header nav ul{
   list-style: none;
 }
 
-header nav ul li{
-  margin: auto 1rem;
+header nav ul li#perfilFechar{
+  margin-right: 1rem;
+  display: none;
+}
+
+header nav ul li#perfilAbrir{
+  margin-right: 1rem;
+  display: block;
 }
 
 header nav ul li a{
@@ -72,6 +78,46 @@ header nav ul li img{
 
 header nav ul li img:hover{
   cursor: pointer;
+}
+
+header nav ul.submenuPerfil{ /* SUBMENU */
+  height: 50%;
+  width: 0;
+  background-color: #e9ecef;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top:6rem;
+  right: 0;
+  z-index: 1;
+  overflow: hidden;
+  border-left: #9ef01a .1rem solid;
+  border-bottom: #9ef01a .1rem solid;
+  transition: width 0.3s;
+  text-align: center;
+}
+
+header nav ul li#perfilMenu{
+  line-height: 4rem;
+}
+header nav ul li#perfilMenu a{
+ font-size: 1rem;
+}
+
+header nav ul li#perfilMenu a:hover{
+  background-color: #9ef01a;
+  color: #ffffff;
+  width: 100%;
+ }
+
+ header nav ul li#perfilMenu a:hover > i#iconSair:hover{
+  background-color: #9ef01a;
+  color: #ffffff;
+ }
+
+header nav ul li#perfilMenu ul a i#iconSair{
+  padding-left: 1rem;
+  color: #38b000;
 }
 /***************** Fim do estilo do header *****************/
 

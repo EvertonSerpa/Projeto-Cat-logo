@@ -9,10 +9,10 @@
     <title>Agrotech</title>
   </head>
 
-  <body class="bg">
-    <header class="logo">
-      <div class="logo">
-        <a href="#"><img src="../static/img/logo.png" /></a>
+  <body>
+    <header>
+      <div>
+        <a href="#" class="logo"><img src="../static/img/logo.png" /></a>
         <h1>Agrotech</h1>
       </div>
       <nav>
@@ -24,7 +24,7 @@
     
     <main>
       <section id="sobre">
-          <h2>O Futuro dos Alimentos</h2>
+          <h2>O <span class="futuro">Futuro</span> dos Alimentos</h2>
           <h3>Tecnologia, sustentabilidade e mais saúde</h3>
           <p>Este é um catalogo sobre produtos orgânico e vegano.</p>
       </section>
@@ -53,6 +53,9 @@
                 <a href="/cadastro">Cadastrar</a>
               </div>
             </div>
+            {% if get_flashed_messages() %}
+            <p>{{ get_flashed_messages()[0] }}</p>
+            {% endif %}
           </form>
         </div>
       </section>

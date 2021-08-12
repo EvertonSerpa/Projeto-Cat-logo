@@ -16,8 +16,21 @@
             </div>
             <nav>
                 <ul>
-                    <li class="perfil"><img src="../static/img/perfil.jpg" alt="Foto perfil"></li>
-                    <li class="sair"><a href="index.html"><i class="fas fa-sign-out-alt"></i></a></li>
+                    <li class="perfil" id="perfilFechar"><img id="imgperfil" src="../static/img/perfil.jpg"
+                            alt="Foto perfil" onclick="fecharMenu()">
+                    <li class="perfil2" id="perfilAbrir"><img id="imgperfil" src="../static/img/perfil.jpg"
+                            alt="Foto perfil" onclick="abrirMenu()">
+                    </li>
+                    <li id="perfilMenu"> <!-- SUBMENU LATERAL (AO CLICAR NO PERFIL) -->
+                        <ul class="submenuPerfil" id="submenu">
+                            <a id="opcao1" href="#">Perfil</a>
+                            <a id="opcao1" href="#">Configuração</a>
+                            <a id="opcao2" href="#">Gerenciar acesso</a>
+                            <a id="opcao3" href="/">Sair
+                            <!-- <i id="iconSair" class="fas fa-sign-out-alt"></i> -->
+                            </a>
+                        </ul>
+                    </li>
                 </ul>
             </nav>
         </header>
@@ -59,8 +72,10 @@
                         <p><strong>QTD.</strong> {{info.quantidade}}</p>
                     </div>
                     <div class="icons">
+                        {% if current_user.is_authenticated %}
                         <a href="/catalogo/edit/{{info.id}}"><i id="edit" class="far fa-edit"></i></a>
                         <a href="/catalogo/{{info.id}}" id="delete"><i class="far fa-trash-alt"></i></a>
+                        {% endif %}
                     </div>
                 </div>
                 {% endfor %}
@@ -141,5 +156,6 @@
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script src="https://kit.fontawesome.com/2df7780fbc.js" crossorigin="anonymous"></script>
         <script src="../static/js/script.js"></script>
+        <script src="../static/js/catalogo.js"></script>
     </body>
 </html>

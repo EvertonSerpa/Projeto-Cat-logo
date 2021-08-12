@@ -9,33 +9,36 @@
     </head>
     <body>
       <main>
-        <section id="edit-item">
           <h2>Editar Produto</h2>
           <img src="{{info.imagem}}" alt="Imagem {{info.nome}}">
           <form action="/catalogo/edit/{{info.id}}" method="POST">
-              <div>
+              <div class="group">
                   <label for="nome">Nome</label>
                   <input type="text" name="nome" id="nome" value="{{info.nome}}">
               </div>
-              <div>
+              <div class="group">
                   <label for="tipo">Tipo</label>
                   <input type="text" name="tipo" id="tipo" value="{{info.tipo}}">
               </div>
-              <div>
+              <div class="group">
                   <label for="valor">Valor</label>
                   <input type="text" name="valor" id="valor" value="{{info.valor}}">
               </div>
-              <div>
+              <div class="group">
                   <label for="quantidade">Quantidade</label>
                   <input type="text" name="quantidade" id="quantidade" value="{{info.quantidade}}">
               </div>
-              <div>
+              <div class="group">
                   <label for="imagem">Imagem</label>
                   <input type="text" name="imagem" id="imagem" placeholder="Copie aqui o link da imagem" value="{{info.imagem}}">
               </div>
-              <button>Alterar</button>
+              <div class="btns">
+                  <button>Alterar</button>
+                  <div class="btn-fake">
+                    <a href="/catalogo">Cancelar</a>
+                  </div>
+              </div>
           </form>
-        </section>
       </main>
     </body>
 </html>
