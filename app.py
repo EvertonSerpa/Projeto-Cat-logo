@@ -1,9 +1,8 @@
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request, redirect, url_for, session, flash
 from cryptography.fernet import Fernet
-from flask.helpers import flash, get_flashed_messages
 from flask_mail import Mail, Message
 from flask_sqlalchemy import SQLAlchemy
-from flask_login import LoginManager, UserMixin, current_user, login_user
+from flask_login import LoginManager, UserMixin, current_user, login_user, logout_user
 
 app = Flask(__name__)
 
@@ -179,6 +178,10 @@ def login():
             flash('Dados incorretos!')
             return redirect(url_for("index"))
 
+@app.route('/logout')
+def logout():
+    logout_user()
+    return redirect(url_for('index'))
 
 ## Rota catalogo onde é exibido os items cadastrado no catalogo | Read do CRUD
 @app.route('/catalogo')
